@@ -5,7 +5,7 @@ using System.Collections;
 
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField] private Sound[] sounds;
+    [SerializeField] public Sound[] sounds;
     public static AudioManager instance;
 
     [SerializeField] private Sound[] walkSounds;
