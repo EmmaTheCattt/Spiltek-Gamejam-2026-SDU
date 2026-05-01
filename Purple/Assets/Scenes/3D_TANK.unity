@@ -36484,7 +36484,7 @@ GameObject:
   m_Component:
   - component: {fileID: 622388501}
   - component: {fileID: 622388500}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FULL_TANK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36519,7 +36519,7 @@ MonoBehaviour:
   SIDEWAYS_VEL: {x: 0, y: 0, z: 0}
   OBJECTS:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 55
 --- !u!4 &622388501
 Transform:
   m_ObjectHideFlags: 0
@@ -55034,7 +55034,7 @@ GameObject:
   - component: {fileID: 963518313}
   - component: {fileID: 963518312}
   - component: {fileID: 963518311}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BODY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73514,7 +73514,7 @@ GameObject:
   - component: {fileID: 1301819309}
   - component: {fileID: 1301819308}
   - component: {fileID: 1301819311}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -116319,9 +116319,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 622388501}
     m_Modifications:
+    - target: {fileID: 1588242843669960643, guid: 56e3a934622da204ba0fc66ceede688c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1725944238125867910, guid: 56e3a934622da204ba0fc66ceede688c, type: 3}
       propertyPath: m_Name
       value: PLAYER_TANK
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725944238125867910, guid: 56e3a934622da204ba0fc66ceede688c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3165764528437627700, guid: 56e3a934622da204ba0fc66ceede688c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -116366,6 +116374,14 @@ PrefabInstance:
     - target: {fileID: 7168645172772707171, guid: 56e3a934622da204ba0fc66ceede688c, type: 3}
       propertyPath: m_Name
       value: TIP
+      objectReference: {fileID: 0}
+    - target: {fileID: 7168645172772707171, guid: 56e3a934622da204ba0fc66ceede688c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7986592526425496256, guid: 56e3a934622da204ba0fc66ceede688c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

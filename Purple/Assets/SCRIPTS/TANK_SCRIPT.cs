@@ -10,7 +10,7 @@ public class TANK_SCRIPT : MonoBehaviour
 
     public bool shoot;
     public bool jump;
-    public bool ground = true;
+    public bool ground;
 
     public GameObject barrel;
     public GameObject Bullet;
@@ -20,6 +20,9 @@ public class TANK_SCRIPT : MonoBehaviour
 
     public float UP_VEL;
     public float height;
+    public float fall_speed = 1;
+    public float fall_mult;
+    private float new_fall_speed;
     public Vector3 SIDEWAYS_VEL;
 
     public LayerMask OBJECTS;
@@ -46,7 +49,7 @@ public class TANK_SCRIPT : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (jump || ground)
+        if (jump && ground)
         {
             UP_VEL = 5;
         }
@@ -56,7 +59,13 @@ public class TANK_SCRIPT : MonoBehaviour
 
         if (ground == false)
         {
-            UP_VEL -= Time.fixedDeltaTime;
+            UP_VEL -= new_fall_speed * Time.fixedDeltaTime;
+            new_fall_speed += Time.deltaTime * fall_mult;
+        }
+
+        if (ground == true)
+        {
+            new_fall_speed = fall_speed;
         }
     }
 
@@ -65,9 +74,14 @@ public class TANK_SCRIPT : MonoBehaviour
         RaycastHit hit;
         ground = false;
 
-        if (Physics.Raycast(transform.position, Vector3.down * height, out hit, OBJECTS))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, OBJECTS))
         {
-            ground = true;
+            if (hit.distance <= height)
+            {
+                Debug.Log(hit.distance);
+                ground = true;
+                UP_VEL = 0;
+            }
         }
     }
 }
