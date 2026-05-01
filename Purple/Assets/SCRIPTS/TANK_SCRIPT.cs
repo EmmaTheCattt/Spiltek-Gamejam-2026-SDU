@@ -50,14 +50,17 @@ public class TANK_SCRIPT : MonoBehaviour
         BUL_DIR = new Vector3(barrel.transform.position.x - transform.position.x, barrel.transform.position.y - transform.position.y, barrel.transform.position.z - transform.position.z).normalized;
 
         ground_check();
-
+        
         if (shoot)
         {
-            GameObject bullet = Instantiate(Bullet, barrel.transform.position, Quaternion.identity);
 
             BUL_DIR = new Vector3(barrel.transform.position.x - transform.position.x, barrel.transform.position.y - transform.position.y, barrel.transform.position.z - transform.position.z).normalized;
 
-            Bullet.GetComponent<BULLET>().Direction = BUL_DIR;
+            GameObject bullet = Instantiate(Bullet, barrel.transform.position, Quaternion.identity);
+
+            bullet.GetComponent<BULLET>().Direction = BUL_DIR;
+            
+            Debug.Log(BUL_DIR);
         }
     }
 
