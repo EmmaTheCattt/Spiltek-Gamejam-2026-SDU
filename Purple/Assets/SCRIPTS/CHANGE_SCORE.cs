@@ -9,6 +9,15 @@ public class CHANGE_SCORE : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TEXT.text = "Painted Tiles: " + GAMEMANAGER.GM.score + "/" + "100";
+        TEXT.text = "Painted Tiles: " + GAMEMANAGER.GM.score + "/" + GAMEMANAGER.GM.Max_score;
+
+        if (GAMEMANAGER.GM.score >= GAMEMANAGER.GM.Max_score)
+        {
+            TEXT.color = Color.purple;
+        }
+        else
+        {
+            TEXT.color = Color.white;
+        }
     }
 }
