@@ -12,7 +12,8 @@ public class BULLET : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        AudioManager.instance.PlaySFX("Jump");
+        AudioManager.instance.PlaySFX("Jumo");
+        AudioManager.instance.PlaySFX("Shot");
     }
 
     // Update is called once per frame
@@ -32,7 +33,7 @@ public class BULLET : MonoBehaviour
 
     private void DestroyMe()
     {
-        AudioManager.instance.StopSFX("Jump");
+        AudioManager.instance.PlaySoundWithVolumeRelativeToDistance(transform.position, "Splat");
         Destroy(this.gameObject);
     }
 }
