@@ -3,10 +3,9 @@ using TMPro;
 
 public class TEXT : MonoBehaviour
 {
-
     public TextMeshProUGUI TEXT_text;
 
-    void Update()
+    public void check_score()
     {
         if (GAMEMANAGER.GM.score >= GAMEMANAGER.GM.Max_score)
         {

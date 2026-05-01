@@ -8,5 +8,6 @@ public class CHANGE_SCORE : TEXT
     void Update()
     {
         TEXT_text.text = "Painted Tiles: " + GAMEMANAGER.GM.score + "/" + GAMEMANAGER.GM.Max_score;
+        check_score();
     }
 }

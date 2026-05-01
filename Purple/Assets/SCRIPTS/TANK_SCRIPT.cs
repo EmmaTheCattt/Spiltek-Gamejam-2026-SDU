@@ -23,10 +23,12 @@ public class TANK_SCRIPT : MonoBehaviour
     public float fall_speed = 1;
     public float fall_mult;
     public float speed;
+    public float Max_Y_pos_fall;
     private float new_fall_speed;
 
     public Vector3 SIDEWAYS_VEL;
     public Vector3 BUL_DIR;
+    public Vector3 SPAWN;
 
     public LayerMask OBJECTS;
 
@@ -34,7 +36,7 @@ public class TANK_SCRIPT : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        SPAWN = transform.position;
     }
 
     // Update is called once per frame
@@ -63,6 +65,14 @@ public class TANK_SCRIPT : MonoBehaviour
             bullet.GetComponent<BULLET>().Direction = BUL_DIR;
             
             Debug.Log(BUL_DIR);
+        }
+
+        if (transform.position.y < Max_Y_pos_fall)
+        {
+            UP_VEL = 0;
+            SIDEWAYS_VEL = Vector3.zero;
+            ground = true;
+            transform.position = SPAWN;
         }
     }
 

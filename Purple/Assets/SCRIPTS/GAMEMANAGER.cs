@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro.Examples;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,12 +10,20 @@ public class GAMEMANAGER : MonoBehaviour
 
     public int score = 0;
     public int Max_score;
+
+    public float Current_time;
     public float Max_time;
 
+    [Header("LEVEL 1")]
     public int Max_score_Level_1;
     public float Max_time_Level_1;
 
-    public int Max_score_level_2;
+    [Header("LEVEL 2")]
+    public int Max_score_Level_2;
+    public float Max_time_Level_2;
+
+    [Header("LOADED?")]
+    public bool loaded = false;
 
     void Awake()
     {
@@ -36,10 +45,20 @@ public class GAMEMANAGER : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SceneManager.GetActiveScene().name == "LEVEL_1")
+        if (SceneManager.GetActiveScene().name == "LEVEL_1" && loaded == false)
         {
             Max_score = Max_score_Level_1;
+            Current_time = Max_time_Level_1;
             Max_time = Max_time_Level_1;
+            loaded = true;
+        }
+
+        if (SceneManager.GetActiveScene().name == "LEVEL_2" && loaded == false)
+        {
+            Max_score = Max_score_Level_2;
+            Current_time = Max_time_Level_2;
+            Max_time = Max_time_Level_2;
+            loaded = true;
         }
     }
 }

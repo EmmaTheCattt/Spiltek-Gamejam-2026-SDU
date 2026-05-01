@@ -62,11 +62,14 @@ MonoBehaviour:
   fall_speed: 2
   fall_mult: 3
   speed: 5
+  Max_Y_pos_fall: -10
   SIDEWAYS_VEL: {x: 0, y: 0, z: 0}
   BUL_DIR: {x: 0, y: 0, z: 0}
+  SPAWN: {x: 0, y: 0, z: 0}
   OBJECTS:
     serializedVersion: 2
     m_Bits: 128
+  isMoving: 0
 --- !u!1 &6204237683612244210
 GameObject:
   m_ObjectHideFlags: 0
