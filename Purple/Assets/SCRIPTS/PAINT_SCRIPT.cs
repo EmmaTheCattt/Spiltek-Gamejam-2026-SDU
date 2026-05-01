@@ -21,8 +21,11 @@ public class PAINT_SCRIPT : MonoBehaviour
     {
         if (other.CompareTag("paintable"))
         {
-            other.gameObject.GetComponent<MeshRenderer>().material = PURPLE;
-            GAMEMANAGER.GM.score++;
+            if (other.gameObject.GetComponent<Renderer>().sharedMaterial != PURPLE)
+            {
+                GAMEMANAGER.GM.score++;
+                other.gameObject.GetComponent<MeshRenderer>().material = PURPLE;
+            }
         }
     }
 }

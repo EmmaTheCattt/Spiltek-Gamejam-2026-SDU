@@ -9,8 +9,12 @@ public class GAMEMANAGER : MonoBehaviour
 
     public int score = 0;
     public int Max_score;
+    public float Max_time;
 
     public int Max_score_Level_1;
+    public float Max_time_Level_1;
+
+    public int Max_score_level_2;
 
     void Awake()
     {
@@ -35,6 +39,7 @@ public class GAMEMANAGER : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "LEVEL_1")
         {
             Max_score = Max_score_Level_1;
+            Max_time = Max_time_Level_1;
         }
     }
 }
