@@ -78,6 +78,13 @@ public class TANK_SCRIPT : MonoBehaviour
             SIDEWAYS_VEL = SIDEWAYS_VEL * speed;
         }
 
+        if (back)
+        {
+            SIDEWAYS_VEL = new Vector3(barrel.transform.position.x - transform.position.x, 0, barrel.transform.position.z - transform.position.z);
+            SIDEWAYS_VEL = SIDEWAYS_VEL.normalized;
+            SIDEWAYS_VEL = SIDEWAYS_VEL * -speed;
+        }
+
         Vector3 moving = new Vector3(0, UP_VEL, 0);
         transform.position += (moving * Time.fixedDeltaTime) + (SIDEWAYS_VEL * Time.deltaTime);
 

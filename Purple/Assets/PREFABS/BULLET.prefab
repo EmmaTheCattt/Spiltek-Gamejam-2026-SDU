@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32706297e75ef724eb22593c3408520f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  PURPLE: {fileID: 2100000, guid: 64f4914674a3bfd46b6ec664cb6e694b, type: 2}
 --- !u!1 &4085388433419404651
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,3 +282,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   speed: 30
   Direction: {x: 0.5512101, y: -0.054783985, z: -0.832566}
+  blasto_rado: {fileID: 2569120389349818801}
