@@ -22,8 +22,11 @@ public class TANK_SCRIPT : MonoBehaviour
     public float height;
     public float fall_speed = 1;
     public float fall_mult;
+    public float speed;
     private float new_fall_speed;
+
     public Vector3 SIDEWAYS_VEL;
+    public Vector3 BUL_DIR;
 
     public LayerMask OBJECTS;
 
@@ -44,7 +47,18 @@ public class TANK_SCRIPT : MonoBehaviour
         shoot = Input.GetMouseButtonDown(0);
         jump = Input.GetKey(KeyCode.Space);
 
+        BUL_DIR = new Vector3(barrel.transform.position.x - transform.position.x, barrel.transform.position.y - transform.position.y, barrel.transform.position.z - transform.position.z).normalized;
+
         ground_check();
+
+        if (shoot)
+        {
+            GameObject bullet = Instantiate(Bullet, barrel.transform.position, Quaternion.identity);
+
+            BUL_DIR = new Vector3(barrel.transform.position.x - transform.position.x, barrel.transform.position.y - transform.position.y, barrel.transform.position.z - transform.position.z).normalized;
+
+            Bullet.GetComponent<BULLET>().Direction = BUL_DIR;
+        }
     }
 
     private void FixedUpdate()
@@ -54,8 +68,15 @@ public class TANK_SCRIPT : MonoBehaviour
             UP_VEL = 5;
         }
 
+        if (forward)
+        {
+            SIDEWAYS_VEL = new Vector3(barrel.transform.position.x - transform.position.x, 0, barrel.transform.position.z - transform.position.z);
+            SIDEWAYS_VEL = SIDEWAYS_VEL.normalized;
+            SIDEWAYS_VEL = SIDEWAYS_VEL * speed;
+        }
+
         Vector3 moving = new Vector3(0, UP_VEL, 0);
-        transform.position += moving * Time.fixedDeltaTime;
+        transform.position += (moving * Time.fixedDeltaTime) + (SIDEWAYS_VEL * Time.deltaTime);
 
         if (ground == false)
         {
@@ -66,6 +87,7 @@ public class TANK_SCRIPT : MonoBehaviour
         if (ground == true)
         {
             new_fall_speed = fall_speed;
+            SIDEWAYS_VEL = Vector3.zero;
         }
     }
 
