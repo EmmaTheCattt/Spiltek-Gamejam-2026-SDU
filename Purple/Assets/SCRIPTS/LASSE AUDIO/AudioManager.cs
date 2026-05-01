@@ -1,7 +1,8 @@
 using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
-using System.Collections;
+using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class AudioManager : MonoBehaviour
 {
@@ -38,7 +39,7 @@ public class AudioManager : MonoBehaviour
             s.source.playOnAwake = s.PlayOnAwake;
         }
 
-        foreach(Sound s in walkSounds)
+        foreach (Sound s in walkSounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
@@ -48,7 +49,7 @@ public class AudioManager : MonoBehaviour
             s.source.playOnAwake = s.PlayOnAwake;
         }
 
-        foreach(Sound s in slimeSounds)
+        foreach (Sound s in slimeSounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
@@ -80,7 +81,7 @@ public class AudioManager : MonoBehaviour
         {
             StopSFX("TankDriving");
         }
-        
+
         if (!tank.isMoving)
         {
             StopSFX("TankDriving");
@@ -185,4 +186,21 @@ public class AudioManager : MonoBehaviour
         randomSlimeSound.source.Play();
         Debug.Log("Playing slime sound");
     }
+
+    public void PlaySoundWithVolumeRelativeToDistance(Vector3 objectPos, string sound)
+    {
+        float dist = Vector3.Distance(tank.gameObject.transform.position, objectPos);
+        Debug.Log($"Distance between player and painting is {dist}");
+
+        float normalizedDistance = Mathf.InverseLerp(40, 0, dist); // 40 feels good
+        Debug.Log("Normalized Distance" + normalizedDistance);
+        Sound _sound = Array.Find(sounds, s => s.name == sound);
+        _sound.source.volume = normalizedDistance;
+        Debug.Log(_sound.source.volume);
+        PlaySFX(_sound.name);
+    }
 }
+   
+
+
+
