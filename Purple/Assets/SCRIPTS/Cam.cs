@@ -9,6 +9,9 @@ public class Cam : MonoBehaviour
     public float rotationX;
     public float rotationY;
 
+    public float High_clamp;
+    public float Low_clamp;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,7 +27,7 @@ public class Cam : MonoBehaviour
         rotationY += mouseX;
         rotationX -= mouseY;
 
-        rotationX = Mathf.Clamp(rotationX, -90f, 90f);
+        rotationX = Mathf.Clamp(rotationX, -Low_clamp, High_clamp);
 
         transform.rotation = Quaternion.Euler(rotationX, rotationY, 0);
         //Target_direction.transform.rotation = quaternion.Euler(rotationX, rotationY, 0);
