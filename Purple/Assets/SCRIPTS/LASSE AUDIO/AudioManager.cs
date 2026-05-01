@@ -9,7 +9,10 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
 
     [SerializeField] private Sound[] walkSounds;
-    [SerializeField] private Sound[] slimeSounds; 
+    [SerializeField] private Sound[] slimeSounds;
+
+    [SerializeField] TANK_SCRIPT tank;
+    [SerializeField] Material purpleMaterial;
 
     private void Awake()
     {
@@ -53,6 +56,49 @@ public class AudioManager : MonoBehaviour
             s.source.loop = s.loop;
             s.source.pitch = s.pitch;
             s.source.playOnAwake = s.PlayOnAwake;
+        }
+
+    }
+
+    public void Update()
+    {
+        HandleTankSounds(tank);
+    }
+
+    public void HandleTankSounds(TANK_SCRIPT tank)
+    {
+        if (tank.isMoving && tank.ground)
+        {
+            StopSFX("TankIdle");
+            if (!Array.Find(sounds, s => s.name == "TankDriving").source.isPlaying)
+            {
+                PlaySFX("TankDriving");
+            }
+            Debug.Log("Moving");
+        }
+        else if (tank.isMoving && !tank.ground)
+        {
+            StopSFX("TankDriving");
+        }
+        
+        if (!tank.isMoving)
+        {
+            StopSFX("TankDriving");
+            if (!Array.Find(sounds, s => s.name == "TankIdle").source.isPlaying)
+            {
+                PlaySFX("TankIdle");
+            }
+            Debug.Log("Idle");
+        }
+
+        if (tank.jump)
+        {
+            if (!Array.Find(sounds, s => s.name == "ShotCharging").source.isPlaying)
+            {
+                PlaySFX("TankIdle");
+                PlaySFX("ShotCharging");
+            }
+            Debug.Log("Jumping");
         }
 
     }

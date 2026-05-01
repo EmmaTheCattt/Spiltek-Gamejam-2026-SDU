@@ -30,6 +30,7 @@ public class TANK_SCRIPT : MonoBehaviour
 
     public LayerMask OBJECTS;
 
+    public bool isMoving;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -50,6 +51,7 @@ public class TANK_SCRIPT : MonoBehaviour
         BUL_DIR = new Vector3(barrel.transform.position.x - transform.position.x, barrel.transform.position.y - transform.position.y, barrel.transform.position.z - transform.position.z).normalized;
 
         ground_check();
+        calculateIsMoving();
         
         if (shoot)
         {
@@ -61,6 +63,18 @@ public class TANK_SCRIPT : MonoBehaviour
             bullet.GetComponent<BULLET>().Direction = BUL_DIR;
             
             Debug.Log(BUL_DIR);
+        }
+    }
+
+    public void calculateIsMoving()
+    {
+        if (forward || left || right || back)
+        {
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
         }
     }
 

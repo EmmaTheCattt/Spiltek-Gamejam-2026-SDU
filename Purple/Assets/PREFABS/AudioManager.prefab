@@ -1,0 +1,287 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6478935599511919368
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8746673170842666936}
+  - component: {fileID: 2708564930478841045}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8746673170842666936
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6478935599511919368}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.22353, y: -0, z: 2.30728}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2708564930478841045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6478935599511919368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7edee490a003a548bf86f2d1811a3c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  sounds:
+  - name: Hurt
+    clip: {fileID: 8300000, guid: 62f5ac8adb544ee4b81d816fe0f907c6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: JumpCharge
+    clip: {fileID: 8300000, guid: db7e0540ffcc75044b1ea24df3217355, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: Jump
+    clip: {fileID: 8300000, guid: 0171e1aeb6905074f9f5baad58033c4f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: Land
+    clip: {fileID: 8300000, guid: 3235b20cda0a55d49b1ab13424634c4b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: SlimeJump
+    clip: {fileID: 8300000, guid: 93824c91e94b62b4e8a0244672ba8654, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: SlimeLand
+    clip: {fileID: 8300000, guid: e3a55346217d1c241a3cc0c4b215074f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: TankDriving
+    clip: {fileID: 8300000, guid: 6764a93f488bb384f968ff47c488be53, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: TankIdle
+    clip: {fileID: 8300000, guid: 31e83960250edc241a49f0c8e71b14f1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: ShellExploding
+    clip: {fileID: 8300000, guid: 6d842bbce4b9dab49b5b0271466ac1cf, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: ShotCharging
+    clip: {fileID: 8300000, guid: 304146046ec79ce4383235cb3b429d7b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: ShotFiring
+    clip: {fileID: 8300000, guid: 11eed64c2f81cdd4bbdee6f3c352e4b3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: AngelicChoir
+    clip: {fileID: 8300000, guid: a7252515e44bca14183d415e3bcb7f59, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: Trans1
+    clip: {fileID: 8300000, guid: 58a472626a78305459f5f98ea57effc3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: Trans2
+    clip: {fileID: 8300000, guid: eb24bf110bb987e4cb4663518f90de27, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  walkSounds:
+  - name: Walk1
+    clip: {fileID: 8300000, guid: 1a4770fee0d05df409758f80d86f4631, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: Walk2
+    clip: {fileID: 8300000, guid: ba03468d158563045937c309ced5fd26, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: Walk3
+    clip: {fileID: 8300000, guid: 5657b2866563a4848a60685b362df715, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  slimeSounds:
+  - name: Slime1
+    clip: {fileID: 8300000, guid: 30bc2df89b04e0141b660dad9e9db371, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: Slime2
+    clip: {fileID: 8300000, guid: eb6170a4d4a93c84fb9467038ede015c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: Slime3
+    clip: {fileID: 8300000, guid: 0ec16fd418b64334e9b26a9269a236bf, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: Slime4
+    clip: {fileID: 8300000, guid: 70e08a814cb0af044a147fdf2a78f7d5, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: Slime5
+    clip: {fileID: 8300000, guid: 76b241e05a4b56c439d5af05460db28c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: Slime6
+    clip: {fileID: 8300000, guid: 8ae7fe259427297469581493bbaacfe6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: Slime7
+    clip: {fileID: 8300000, guid: dc030dbb83e76fa43a2e6f58a6fba1d3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: Slime8
+    clip: {fileID: 8300000, guid: 948eeac717aa003448fb22f1f0f63f8e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: Slime9
+    clip: {fileID: 8300000, guid: 23c4ad93f7a02f042867eea8fc02166f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: Slime10
+    clip: {fileID: 8300000, guid: fb02883bcb4dc184089e4ad517c609e2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: Slime11
+    clip: {fileID: 8300000, guid: e5668dcfa5219454f8d6c74d5b42b504, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: Slime12
+    clip: {fileID: 8300000, guid: 24b2ff3de53248d4b837f5c1a67f7eaa, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: Slime13
+    clip: {fileID: 8300000, guid: 96b88ee9b6fef534e8af0fbff59e14e2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: Slime14
+    clip: {fileID: 8300000, guid: 14a872b8a9544314bb2584f7ad64a5ad, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: Slime15
+    clip: {fileID: 8300000, guid: 3f5f1924e53b40140b9f0544f13b071b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: Slime16
+    clip: {fileID: 8300000, guid: 465195392acd7234581eed0d1aefae1c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: Slime17
+    clip: {fileID: 8300000, guid: 693439147c14e3d4089ca1e240fdc0d0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
