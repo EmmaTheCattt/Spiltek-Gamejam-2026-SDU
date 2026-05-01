@@ -10,13 +10,19 @@ public class TANK_SCRIPT : MonoBehaviour
 
     public bool shoot;
     public bool jump;
+    public bool ground = true;
 
     public GameObject barrel;
     public GameObject Bullet;
+    public GameObject Body;
 
     public Color Bullet_COLOR;
-    public Rigidbody RB;
 
+    public float UP_VEL;
+    public float height;
+    public Vector3 SIDEWAYS_VEL;
+
+    public LayerMask OBJECTS;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,10 +40,34 @@ public class TANK_SCRIPT : MonoBehaviour
 
         shoot = Input.GetMouseButtonDown(0);
         jump = Input.GetKey(KeyCode.Space);
+
+        ground_check();
     }
 
     private void FixedUpdate()
     {
-        
+        if (jump || ground)
+        {
+            UP_VEL = 5;
+        }
+
+        Vector3 moving = new Vector3(0, UP_VEL, 0);
+        transform.position += moving * Time.fixedDeltaTime;
+
+        if (ground == false)
+        {
+            UP_VEL -= Time.fixedDeltaTime;
+        }
+    }
+
+    void ground_check()
+    {
+        RaycastHit hit;
+        ground = false;
+
+        if (Physics.Raycast(transform.position, Vector3.down * height, out hit, OBJECTS))
+        {
+            ground = true;
+        }
     }
 }
