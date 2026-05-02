@@ -5505,6 +5505,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7228282536366653821, guid: 5576d8387f5569245b01a34859b1fad0, type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11836,9 +11840,10 @@ GameObject:
   - component: {fileID: 1443639916}
   - component: {fileID: 1443639915}
   - component: {fileID: 1443639914}
+  - component: {fileID: 1443639917}
   m_Layer: 0
   m_Name: Painting
-  m_TagString: Untagged
+  m_TagString: PAINTING
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11963,6 +11968,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1443639917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443639913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3909ef0c9a233e04e84b4b9047b12f47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PAINTING_TRANSPORT
+  SCENE_TRANFER: LEVEL_3_2
 --- !u!1001 &1448078907
 PrefabInstance:
   m_ObjectHideFlags: 0
