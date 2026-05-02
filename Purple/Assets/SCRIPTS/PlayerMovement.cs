@@ -4,6 +4,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using System;
+using System.Collections.Generic;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -246,7 +248,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (IsWalled() && !isGrounded && moveVelocity.x != 0f && !BlackWall())
         {
-            AudioManager.instance.Play2DSound("Wall");
+            var wallsound = Array.Find(AudioManager.instance.TwoDSounds, s => s.name == "Wall");
+            if (!wallsound.source.isPlaying)
+            {
+                AudioManager.instance.Play2DSound("Wall");
+                Debug.Log("WallingSounding");
+            }
             isWallSliding = true;
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Clamp(rb.linearVelocity.y, -wallSlidingSpeed, float.MaxValue));
         }

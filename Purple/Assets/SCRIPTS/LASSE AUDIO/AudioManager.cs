@@ -12,7 +12,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private Sound[] walkSounds;
     [SerializeField] private Sound[] slimeSounds;
-    [SerializeField] private Sound[] TwoDSounds;
+    [SerializeField] public Sound[] TwoDSounds;
 
     [SerializeField] Material purpleMaterial;
 

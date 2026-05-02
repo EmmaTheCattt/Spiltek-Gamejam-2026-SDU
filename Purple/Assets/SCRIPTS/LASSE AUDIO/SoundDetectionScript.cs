@@ -53,7 +53,7 @@ public class SoundDetectionScript : MonoBehaviour
         if (TwoDScene)
         {
             Debug.Log("2D");
-            angelicChoir.source.volume = normalizedDistanceOtherSound;
+            angelicChoir.source.volume = normalizedDistanceOtherSound * 0.25f;
             AudioManager.instance.ControlSoundVolume(normalizedDistance);
         }
         else 
