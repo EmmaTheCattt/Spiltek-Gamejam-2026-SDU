@@ -2,42 +2,42 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 
 public class BUTTON_HANDLER : MonoBehaviour
 {
 
     public GameObject[] buttons;
-    public Color[] BUT_IMG;
+    public Image[] BUT_IMG;
 
     private void Update()
     {
         if (GAMEMANAGER.GM.cleared[0] == true)
         {
-            buttons[0].GetComponent<Button>().SetEnabled(true);
-            BUT_IMG[0] = Color.purple;
-            buttons[1].GetComponent<Button>().SetEnabled(true);
-            BUT_IMG[1] = Color.white;
+            buttons[0].GetComponent<Button>().enabled = true;
+            BUT_IMG[0].color = Color.purple;
+            buttons[1].GetComponent<Button>().enabled = true;
+            BUT_IMG[1].color = Color.white;
         }
 
         for (int i = 1; i < buttons.Length; i++)
         {
             if (GAMEMANAGER.GM.cleared[i - 1] == true)
             {
-                buttons[i].GetComponent<Button>().SetEnabled(true);
-                BUT_IMG[i] = Color.white;
+                buttons[i].GetComponent<Button>().enabled = true;
+                BUT_IMG[i].color = Color.white;
             }
 
             if (GAMEMANAGER.GM.cleared[i] == true)
             {
-                buttons[i].GetComponent<Button>().SetEnabled(true);
-                BUT_IMG[i] = Color.purple;
+                buttons[i].GetComponent<Button>().enabled = true;
+                BUT_IMG[i].color = Color.purple;
 
                 if ((i + 1)! > buttons.Length)
                 {
-                    buttons[i + 1].GetComponent<Button>().SetEnabled(true);
-                    BUT_IMG[i + 1] = Color.white;
+                    buttons[i + 1].GetComponent<Button>().enabled = true;
+                    BUT_IMG[i + 1].color = Color.white;
                 }
             }
         }
