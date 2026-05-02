@@ -162,6 +162,20 @@ public class AudioManager : MonoBehaviour
         PlaySFX(_sound.name);
     }
 
+    public void PlaySlimeGroundSound(Material mat)
+    {
+        Debug.Log(mat.color);
+        Debug.Log(purpleMaterial);
+        if (mat.color == purpleMaterial.color)
+        {
+            PlayRandomSlimeSFX();
+        }
+        else
+        {
+            Debug.Log("Not hitting purple Material on raycasthit down");
+        }
+    }
+
     public void ControlSoundVolume(float volume)
     {
         foreach(var sound in sounds)

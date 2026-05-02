@@ -161,7 +161,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: d90a31536fd4aac48b96056d021eee3e, type: 3}
     volume: 1
     pitch: 1
-    loop: 0
+    loop: 1
     PlayOnAwake: 0
     source: {fileID: 0}
   walkSounds:
@@ -306,4 +306,4 @@ MonoBehaviour:
     loop: 0
     PlayOnAwake: 0
     source: {fileID: 0}
-  purpleMaterial: {fileID: 0}
+  purpleMaterial: {fileID: 2100000, guid: 64f4914674a3bfd46b6ec664cb6e694b, type: 2}

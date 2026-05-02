@@ -63,6 +63,7 @@ public class TANK_SCRIPT : MonoBehaviour
         ground_check();
         calculateIsMoving();
         HandleTankSounds();
+        CalculateSlimeSound();
         
         if (shoot && Fire_rate < time)
         {
@@ -134,6 +135,23 @@ public class TANK_SCRIPT : MonoBehaviour
             Debug.Log("Jumping");
         }
 
+    }
+
+    public void CalculateSlimeSound()
+    {
+        Debug.Log("Entering");
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity))
+        {
+            var material = hit.collider.gameObject.GetComponent<MeshRenderer>().material;
+            Debug.Log(material);
+            if (ground)
+            {
+                Debug.Log("Entering 2");
+                AudioManager.instance.PlaySlimeGroundSound(material);
+            }
+            
+        }
     }
 
     private void FixedUpdate()
