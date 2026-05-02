@@ -12,6 +12,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private Sound[] walkSounds;
     [SerializeField] private Sound[] slimeSounds;
+    [SerializeField] private Sound[] TwoDSounds;
 
     [SerializeField] Material purpleMaterial;
 
@@ -58,6 +59,16 @@ public class AudioManager : MonoBehaviour
             s.source.playOnAwake = s.PlayOnAwake;
         }
 
+        foreach(Sound s in TwoDSounds)
+        {
+            s.source = gameObject.AddComponent<AudioSource>();
+            s.source.clip = s.clip;
+            s.source.volume = s.volume;
+            s.source.loop = s.loop;
+            s.source.pitch = s.pitch;
+            s.source.playOnAwake = s.PlayOnAwake;
+        }
+
     }
 
     public void Update()
@@ -67,7 +78,7 @@ public class AudioManager : MonoBehaviour
 
     public void Start()
     {
-
+        PlayMusic("TankSong");
     }
 
     public void PlayMusic(string name)
@@ -112,6 +123,30 @@ public class AudioManager : MonoBehaviour
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
 
+        if (s == null)
+        {
+            print("Sound: " + name + " not found");
+            return;
+        }
+
+        s.source.Stop();
+    }
+
+    public void Play2DSound(string name)
+    {
+        Sound s = Array.Find(TwoDSounds, s => s.name == name);
+        if (s == null)
+        {
+            print("Sound: " + name + " not found");
+            return;
+        }
+
+        s.source.Play();
+    }
+
+    public void Stop2DSound(string name)
+    {
+        Sound s = Array.Find(TwoDSounds, s => s.name == name);
         if (s == null)
         {
             print("Sound: " + name + " not found");
@@ -197,11 +232,21 @@ public class AudioManager : MonoBehaviour
     {
         Debug.Log("OnSceneLoaded: " + scene.name);
         Debug.Log(mode);
-        if (scene.name.StartsWith("LEVEL"))
+        /*if (scene.name.StartsWith("LEVEL"))
         {
             StopMusic("TankSong");
             PlayMusic("TankSong");
+        }*/
+        if (scene.name.StartsWith("2D"))
+        {
+            Handle2DSound();
         }
+    }
+
+    public void Handle2DSound()
+    {
+        StopSFX("TankDriving");
+        StopSFX("TankIdle");
     }
 }
    

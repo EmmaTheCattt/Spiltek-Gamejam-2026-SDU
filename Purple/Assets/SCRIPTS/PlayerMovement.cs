@@ -87,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
         }
         
         WallJump();
+        CalculateSlimeSound();
         
     }
 
@@ -194,6 +195,7 @@ public class PlayerMovement : MonoBehaviour
         //Landed
         if ((isDescending || isFalling) && GetIsGrounded())
         {
+            AudioManager.instance.Play2DSound("Land");
             isJumping = false;
             isFalling = false;
             jumpStart = false;
@@ -218,6 +220,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isJumping==true && !isDescending)
         {
+            AudioManager.instance.Play2DSound("Jump");
+            Debug.Log("Jumping");
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, moveStats.jumpHeight);
             if (jumpsUsed == 0)
             {
@@ -242,6 +246,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (IsWalled() && !isGrounded && moveVelocity.x != 0f && !BlackWall())
         {
+            AudioManager.instance.Play2DSound("Wall");
             isWallSliding = true;
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Clamp(rb.linearVelocity.y, -wallSlidingSpeed, float.MaxValue));
         }
@@ -255,6 +260,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isWallSliding)
         {
+            AudioManager.instance.Play2DSound("Jump");
             isWallJumping = false;
             wallJumpingDirection = -transform.localScale.x;
             wallJumpingCounter = wallJumpingTime;
@@ -296,7 +302,6 @@ public class PlayerMovement : MonoBehaviour
 
     private bool GetIsGrounded()
     {
-        
         return Physics2D.Raycast(transform.position, Vector2.down, playerHalfHeight+0.1f, groundLayer);
         
     }
@@ -399,6 +404,24 @@ public class PlayerMovement : MonoBehaviour
         jumpStart = false;
         isDescending = true;
         isJumping = false;
+    }
+
+    //LASSE
+    public void CalculateSlimeSound()
+    {
+        AudioManager.instance.WalkingLoop();
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity))
+        {
+            var material = hit.collider.gameObject.GetComponent<MeshRenderer>().material;
+            Debug.Log(material);
+            if (isGrounded)
+            {
+                Debug.Log("2D Slime Sound");
+                AudioManager.instance.PlaySlimeGroundSound(material);
+            }
+
+        }
     }
 }
 

@@ -126,7 +126,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: a7252515e44bca14183d415e3bcb7f59, type: 3}
     volume: 1
     pitch: 1
-    loop: 0
+    loop: 1
     PlayOnAwake: 0
     source: {fileID: 0}
   - name: Trans1
@@ -301,6 +301,28 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Slime17
     clip: {fileID: 8300000, guid: 693439147c14e3d4089ca1e240fdc0d0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  TwoDSounds:
+  - name: Land
+    clip: {fileID: 8300000, guid: 6d842bbce4b9dab49b5b0271466ac1cf, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: Wall
+    clip: {fileID: 8300000, guid: cfe4078f8fbfde346b586699f8bef48f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: Jump
+    clip: {fileID: 8300000, guid: 304146046ec79ce4383235cb3b429d7b, type: 3}
     volume: 1
     pitch: 1
     loop: 0
