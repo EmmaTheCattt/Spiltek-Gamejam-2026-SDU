@@ -8,6 +8,7 @@ TagManager:
   - TARGET
   - Ground
   - PAINTING
+  - Tank
   layers:
   - Default
   - TransparentFX

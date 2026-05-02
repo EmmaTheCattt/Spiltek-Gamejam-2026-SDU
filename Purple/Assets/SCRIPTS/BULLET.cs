@@ -33,7 +33,10 @@ public class BULLET : MonoBehaviour
 
     private void DestroyMe()
     {
-        AudioManager.instance.PlaySoundWithVolumeRelativeToDistance(transform.position, "Splat");
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySoundWithVolumeRelativeToDistance(transform.position, "Splat");
+        }
         Destroy(this.gameObject);
     }
 }

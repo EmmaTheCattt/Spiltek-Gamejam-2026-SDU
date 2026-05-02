@@ -12,19 +12,17 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private Sound[] walkSounds;
     [SerializeField] private Sound[] slimeSounds;
 
-    [SerializeField] TANK_SCRIPT tank;
     [SerializeField] Material purpleMaterial;
 
     private void Awake()
     {
-        if (instance == null)
+        if (instance != null && instance != this)
         {
-            instance = this;
+            Destroy(this);
         }
         else
         {
-            Destroy(gameObject);
-            return;
+            instance = this;
         }
 
         DontDestroyOnLoad(gameObject);
@@ -151,6 +149,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySoundWithVolumeRelativeToDistance(Vector3 objectPos, string sound)
     {
+        var tank = GameObject.FindWithTag("Tank");
         float dist = Vector3.Distance(tank.gameObject.transform.position, objectPos);
         Debug.Log($"Distance between player and painting is {dist}");
 

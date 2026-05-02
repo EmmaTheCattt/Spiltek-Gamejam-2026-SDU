@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 6184875925597956764}
   m_Layer: 6
   m_Name: FULL_TANK
-  m_TagString: Untagged
+  m_TagString: Tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,6 +87,7 @@ MonoBehaviour:
   barrel: {fileID: 1319722125479618653}
   Bullet: {fileID: 4085388433419404651, guid: 19bba9082306f714da58fa4783a55594, type: 3}
   Body: {fileID: 0}
+  RIGHT_HAND: {fileID: 0}
   Bullet_COLOR: {r: 0, g: 0, b: 0, a: 0}
   UP_VEL: 0
   height: 1
