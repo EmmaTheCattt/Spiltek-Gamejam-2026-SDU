@@ -63,44 +63,6 @@ public class AudioManager : MonoBehaviour
 
     public void Update()
     {
-        HandleTankSounds(tank);
-    }
-
-    public void HandleTankSounds(TANK_SCRIPT tank)
-    {
-        if (tank.isMoving && tank.ground)
-        {
-            StopSFX("TankIdle");
-            if (!Array.Find(sounds, s => s.name == "TankDriving").source.isPlaying)
-            {
-                PlaySFX("TankDriving");
-            }
-            Debug.Log("Moving");
-        }
-        else if (tank.isMoving && !tank.ground)
-        {
-            StopSFX("TankDriving");
-        }
-
-        if (!tank.isMoving)
-        {
-            StopSFX("TankDriving");
-            if (!Array.Find(sounds, s => s.name == "TankIdle").source.isPlaying)
-            {
-                PlaySFX("TankIdle");
-            }
-            Debug.Log("Idle");
-        }
-
-        if (tank.jump)
-        {
-            if (!Array.Find(sounds, s => s.name == "ShotCharging").source.isPlaying)
-            {
-                PlaySFX("TankIdle");
-                PlaySFX("ShotCharging");
-            }
-            Debug.Log("Jumping");
-        }
 
     }
 

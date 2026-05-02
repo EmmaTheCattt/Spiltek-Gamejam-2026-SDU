@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TANK_SCRIPT : MonoBehaviour
@@ -59,6 +61,7 @@ public class TANK_SCRIPT : MonoBehaviour
 
         ground_check();
         calculateIsMoving();
+        HandleTankSounds();
         
         if (shoot && Fire_rate < time)
         {
@@ -92,6 +95,44 @@ public class TANK_SCRIPT : MonoBehaviour
         {
             isMoving = false;
         }
+    }
+
+    public void HandleTankSounds()
+    {
+        if (isMoving && ground)
+        {
+            AudioManager.instance.StopSFX("TankIdle");
+            if (!Array.Find(AudioManager.instance.sounds, s => s.name == "TankDriving").source.isPlaying)
+            {
+                AudioManager.instance.PlaySFX("TankDriving");
+            }
+            Debug.Log("Moving");
+        }
+        else if (isMoving && !ground)
+        {
+            AudioManager.instance.StopSFX("TankDriving");
+        }
+
+        if (!isMoving)
+        {
+            AudioManager.instance.StopSFX("TankDriving");
+            if (!Array.Find(AudioManager.instance.sounds, s => s.name == "TankIdle").source.isPlaying)
+            {
+                AudioManager.instance.PlaySFX("TankIdle");
+            }
+            Debug.Log("Idle");
+        }
+
+        if (jump)
+        {
+            if (!Array.Find(AudioManager.instance.sounds, s => s.name == "ShotCharging").source.isPlaying)
+            {
+                AudioManager.instance.PlaySFX("TankIdle");
+                AudioManager.instance.PlaySFX("ShotCharging");
+            }
+            Debug.Log("Jumping");
+        }
+
     }
 
     private void FixedUpdate()

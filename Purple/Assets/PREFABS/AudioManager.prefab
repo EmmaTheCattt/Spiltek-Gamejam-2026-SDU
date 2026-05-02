@@ -91,14 +91,14 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 6764a93f488bb384f968ff47c488be53, type: 3}
     volume: 1
     pitch: 1
-    loop: 0
+    loop: 1
     PlayOnAwake: 0
     source: {fileID: 0}
   - name: TankIdle
     clip: {fileID: 8300000, guid: 31e83960250edc241a49f0c8e71b14f1, type: 3}
     volume: 1
     pitch: 1
-    loop: 0
+    loop: 1
     PlayOnAwake: 0
     source: {fileID: 0}
   - name: ShellExploding
@@ -138,6 +138,20 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Trans2
     clip: {fileID: 8300000, guid: eb24bf110bb987e4cb4663518f90de27, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: Shot
+    clip: {fileID: 8300000, guid: dcf531fb8611bd64492fc6c210d5e700, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: Splat
+    clip: {fileID: 8300000, guid: c2fc6ff0656004446983c2f64312f8fc, type: 3}
     volume: 1
     pitch: 1
     loop: 0
@@ -285,3 +299,5 @@ MonoBehaviour:
     loop: 0
     PlayOnAwake: 0
     source: {fileID: 0}
+  tank: {fileID: 0}
+  purpleMaterial: {fileID: 0}
