@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fef2f8ca38be7474287e5b8af61f80f4, type: 3}
+  m_Name: New Purple_Guy_Movement_Stats
+  m_EditorClassIdentifier: Assembly-CSharp::Purple_Guy_Movement_Stats
+  maxWalkSpeed: 12
+  groundAcceleration: 5
+  groundDeceleration: 10
+  airAcceleration: 5
+  airDeceleration: 5
+  jumpHeight: 2
+  jumpHeighCompensationFactor: 1.054
+  timeTillJumpApex: 0.13
+  gravityOnReleaseMultiplier: 5
+  maxFallSpeed: 5
+  numberOfJumpsAllowed: 1
+  timeForUpwardsCancel: 0.02
+  apexThreshold: 0.5
+  apexHangTime: 0.1
+  jumpBufferTime: 0.125
+  jumpCoyoteTime: 0.1
+  gravity: -249.46747
