@@ -1,5 +1,6 @@
 using Mono.Cecil;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -14,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask groundLayer;
 
+    public TextMeshProUGUI TEXT_text;
+    public GameObject SIGN;
 
     private float playerHalfHeight;
 
@@ -292,6 +295,21 @@ public class PlayerMovement : MonoBehaviour
         return Physics2D.Raycast(transform.position, Vector2.down, playerHalfHeight+0.1f, groundLayer);
         
     }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Sign"))
+        {
+            SIGN.SetActive(true);
+        }
+    }
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Sign"))
+        {
+            SIGN.SetActive(false);
+        }
+    }
     //public void OnCollisionEnter2D(Collision2D collision)
     //{
     //    if (collision.gameObject.CompareTag("Ground"))
@@ -314,7 +332,7 @@ public class PlayerMovement : MonoBehaviour
     //        }
     //    }
     //}
-    
+
     #endregion
 
     #region Timers
@@ -340,18 +358,6 @@ public class PlayerMovement : MonoBehaviour
         jumpStart = false;
         isDescending = true;
         isJumping = false;
-    }
-    IEnumerator WallJumpLimitLeft()
-    {
-
-        yield return new WaitForSeconds(0.1f);
-        wallJumpLeft = false;
-    }
-    IEnumerator WallJumpLimitRight()
-    {
-
-        yield return new WaitForSeconds(0.1f);
-        wallJumpRight = false;
     }
 }
 
