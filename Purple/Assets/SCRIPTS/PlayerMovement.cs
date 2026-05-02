@@ -1,3 +1,4 @@
+using Mono.Cecil;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,6 +11,9 @@ public class PlayerMovement : MonoBehaviour
     [Header("References")]
     public Purple_Guy_Movement_Stats moveStats;
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Transform wallCheck;
+    [SerializeField] private LayerMask groundLayer;
+
 
     private float playerHalfHeight;
 
@@ -19,6 +23,17 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 moveVelocity;
     public bool isFacingRight;
 
+    //Wall Slide
+    private bool isWallSliding;
+    private float wallSlidingSpeed = 2f;
+
+    //WallJump
+    private bool isWallJumping;
+    private float wallJumpingDirection;
+    private float wallJumpingTime = 0.2f;
+    private float wallJumpingCounter;
+    private float wallJumpingDuration = 0.4f;
+    private Vector2 wallJumpingPower = new Vector2(8f, 8f);
 
     //Collision vars
     public bool isGrounded;
@@ -30,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isDescending;
     public bool isFalling;
     public int jumpsUsed;
+    public float walljumpDistance = 5;
 
     //Coyote time vars
     public float coyoteTimer;
@@ -37,11 +53,11 @@ public class PlayerMovement : MonoBehaviour
     //Finish condition
     public bool finished;
 
-    public Image something;
+    public bool wallJumpLeft;
+    public bool wallJumpRight;
 
     private void Awake()
     {
-        something.color = Color.white;
 
         finished = false;
         isFacingRight = true;
@@ -58,6 +74,13 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         JumpChecks();
+        WallSlide();
+        if (!isWallJumping) 
+        {
+            Flip();
+        }
+        
+        WallJump();
         
     }
 
@@ -78,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (moveInput != Vector2.zero)
         {
-            TurnCheck(moveInput);
+            //TurnCheck(moveInput);
 
             Vector2 targetVelocity = Vector2.zero;
             targetVelocity = new Vector2(moveInput.x, 05) * moveStats.maxWalkSpeed;
@@ -91,30 +114,41 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity = new Vector2(moveVelocity.x, rb.linearVelocity.y);
         }
     }
-    void TurnCheck(Vector2 moveInput)
+    //void TurnCheck(Vector2 moveInput)
+    //{
+    //    if (isFacingRight && moveInput.x < 0)
+    //    {
+    //        Turn(false);
+    //    }
+    //    else if (!isFacingRight && moveInput.x > 0)
+    //    {
+    //        Turn(true);
+    //    }
+    //}
+    //void Turn(bool turnRight)
+    //{
+    //    if (turnRight)
+    //    {
+    //        isFacingRight = true;
+    //        transform.Rotate(0f, 180f, 0f);
+    //    }
+    //    else
+    //    {
+    //        isFacingRight = false;
+    //        transform.Rotate(0f, -180f, 0f);
+    //    }
+    //}
+    private void Flip()
     {
-        if (isFacingRight && moveInput.x < 0)
+        if (isFacingRight && rb.linearVelocityX < 0f || !isFacingRight && rb.linearVelocityX > 0f)
         {
-            Turn(false);
-        }
-        else if (!isFacingRight && moveInput.x > 0)
-        {
-            Turn(true);
+            isFacingRight = !isFacingRight;
+            Vector3 localscale = transform.localScale;
+            localscale.x *= -1f;
+            transform.localScale = localscale;
         }
     }
-    void Turn(bool turnRight)
-    {
-        if (turnRight)
-        {
-            isFacingRight = true;
-            transform.Rotate(0f, 180f, 0f);
-        }
-        else
-        {
-            isFacingRight = false;
-            transform.Rotate(0f, -180f, 0f);
-        }
-    }
+
     #endregion
 
     #region Jump
@@ -130,7 +164,7 @@ public class PlayerMovement : MonoBehaviour
         if (Purple_Guy_Input_Manager.jumpIsReleased)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y*0.3f);
-
+            isDescending = true;
         }
 
 
@@ -185,28 +219,74 @@ public class PlayerMovement : MonoBehaviour
         
 
     }
+    //Wall Jump
 
+    private bool IsWalled()
+    {
+        return Physics2D.OverlapCircle(wallCheck.position, 0.2f, LayerMask.GetMask("Wall"));
+    }
+
+    private void WallSlide()
+    {
+        if (IsWalled() && !isGrounded && moveVelocity.x != 0f)
+        {
+            isWallSliding = true;
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Clamp(rb.linearVelocity.y, -wallSlidingSpeed, float.MaxValue));
+        }
+        else
+        {
+            isWallSliding = false;
+        }
+    }
+
+    private void WallJump()
+    {
+        if (isWallSliding)
+        {
+            isWallJumping = false;
+            wallJumpingDirection = -transform.localScale.x;
+            wallJumpingCounter = wallJumpingTime;
+
+            CancelInvoke(nameof(StopWallJumping));
+        }
+        else
+        {
+            wallJumpingCounter -= Time.fixedDeltaTime;
+        }
+
+        if (wallJumpingCounter >0f && Purple_Guy_Input_Manager.jumpWasPressed)
+        {
+            isWallJumping = true;
+            rb.linearVelocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
+            wallJumpingCounter = 0f;
+
+            if(transform.localScale.x != wallJumpingDirection)
+            {
+                isFacingRight = !isFacingRight;
+                Vector3 localScale = transform.localScale;
+                localScale.x *= -1f;
+                transform.localScale = localScale;
+            }
+            Invoke(nameof(StopWallJumping), wallJumpingDuration);
+        }
+    }
+    private void StopWallJumping()
+    {
+        isWallJumping = false;
+    }
+
+    
     #endregion
 
     #region Collison Checks
     //Collision checks
 
-   
+
     private bool GetIsGrounded()
     {
-        return Physics2D.Raycast(transform.position, Vector2.down, playerHalfHeight+0.1f, LayerMask.GetMask("Ground"));
-    }
-
-    private bool GetIsWalledLeft()
-    {
-        return Physics2D.Raycast(transform.position, Vector2.left, playerHalfHeight + 0.1f, LayerMask.GetMask("Wall"));
-
-    }
-
-    private bool GetIsWalledRight()
-    {
-        return Physics2D.Raycast(transform.position, Vector2.right, playerHalfHeight + 0.1f, LayerMask.GetMask("Wall"));
-
+        
+        return Physics2D.Raycast(transform.position, Vector2.down, playerHalfHeight+0.1f, groundLayer);
+        
     }
     //public void OnCollisionEnter2D(Collision2D collision)
     //{
@@ -230,10 +310,7 @@ public class PlayerMovement : MonoBehaviour
     //        }
     //    }
     //}
-    private void CollisionChecks()
-    {
-
-    }
+    
     #endregion
 
     #region Timers
@@ -259,6 +336,18 @@ public class PlayerMovement : MonoBehaviour
         jumpStart = false;
         isDescending = true;
         isJumping = false;
+    }
+    IEnumerator WallJumpLimitLeft()
+    {
+
+        yield return new WaitForSeconds(0.1f);
+        wallJumpLeft = false;
+    }
+    IEnumerator WallJumpLimitRight()
+    {
+
+        yield return new WaitForSeconds(0.1f);
+        wallJumpRight = false;
     }
 }
 
