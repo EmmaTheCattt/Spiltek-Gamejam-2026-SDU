@@ -155,6 +155,14 @@ public class TANK_SCRIPT : MonoBehaviour
             SIDEWAYS_VEL = new Vector3(RIGHT_HAND.transform.position.x - transform.position.x, 0, RIGHT_HAND.transform.position.z - transform.position.z);
             SIDEWAYS_VEL = SIDEWAYS_VEL.normalized;
             SIDEWAYS_VEL = SIDEWAYS_VEL * speed;
+
+            if (forward)
+            {
+                SIDEWAYS_VEL = new Vector3(RIGHT_HAND.transform.position.x - transform.position.x, 0, RIGHT_HAND.transform.position.z - transform.position.z);
+                SIDEWAYS_VEL += new Vector3(barrel.transform.position.x - transform.position.x, 0, barrel.transform.position.z - transform.position.z);
+                SIDEWAYS_VEL = SIDEWAYS_VEL.normalized;
+                SIDEWAYS_VEL = SIDEWAYS_VEL * speed;
+            }
         }
 
         if (left)
@@ -162,6 +170,14 @@ public class TANK_SCRIPT : MonoBehaviour
             SIDEWAYS_VEL = new Vector3(RIGHT_HAND.transform.position.x - transform.position.x, 0, RIGHT_HAND.transform.position.z - transform.position.z);
             SIDEWAYS_VEL = SIDEWAYS_VEL.normalized;
             SIDEWAYS_VEL = -SIDEWAYS_VEL * speed;
+
+            if (forward)
+            {
+                SIDEWAYS_VEL = new Vector3(RIGHT_HAND.transform.position.x - transform.position.x, 0, RIGHT_HAND.transform.position.z - transform.position.z) * -1;
+                SIDEWAYS_VEL += new Vector3(barrel.transform.position.x - transform.position.x, 0, barrel.transform.position.z - transform.position.z);
+                SIDEWAYS_VEL = SIDEWAYS_VEL.normalized;
+                SIDEWAYS_VEL = SIDEWAYS_VEL * speed;
+            }
         }
 
         if (back)
