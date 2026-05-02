@@ -93,6 +93,8 @@ public class GAMEMANAGER : MonoBehaviour
                     {
                         cleared[i] = true;
                         loaded = false;
+                        score = 0;
+                        Current_time = 0;
                         SceneManager.LoadScene("TITLE");
                         break;
                     }
