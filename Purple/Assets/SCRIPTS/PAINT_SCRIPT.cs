@@ -27,5 +27,14 @@ public class PAINT_SCRIPT : MonoBehaviour
                 other.gameObject.GetComponent<MeshRenderer>().material = PURPLE;
             }
         }
+
+        if (other.CompareTag("TARGET"))
+        {
+            if (other.gameObject.GetComponent<Renderer>().sharedMaterial != PURPLE)
+            {
+                GAMEMANAGER.GM.score += 1000;
+                other.gameObject.GetComponent<MeshRenderer>().material = PURPLE;
+            }
+        }
     }
 }
