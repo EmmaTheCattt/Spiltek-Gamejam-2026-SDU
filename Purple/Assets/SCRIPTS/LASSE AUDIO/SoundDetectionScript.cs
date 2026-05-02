@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using System.Collections;
+using Unity.VisualScripting;
 
 public class SoundDetectionScript : MonoBehaviour
 {
@@ -7,6 +9,7 @@ public class SoundDetectionScript : MonoBehaviour
     public float detectionArea;
     Sound angelicChoir;
     public bool TwoDScene = false;
+    bool isCoroutineRunning = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -54,6 +57,7 @@ public class SoundDetectionScript : MonoBehaviour
         {
             Debug.Log("2D");
             angelicChoir.source.volume = normalizedDistanceOtherSound * 0.25f;
+            if (!isCoroutineRunning) StartCoroutine(ChangeAngelicChoirPitch());
             AudioManager.instance.ControlSoundVolume(normalizedDistance);
         }
         else 
@@ -72,6 +76,27 @@ public class SoundDetectionScript : MonoBehaviour
         }
 
         Debug.Log(angelicChoir.source.volume);
+    }
+
+    public IEnumerator ChangeAngelicChoirPitch()
+    {
+        isCoroutineRunning = true;
+        while (angelicChoir.source.isPlaying)
+        {
+            yield return new WaitForSeconds(2f);
+            float randomPitch = UnityEngine.Random.Range(0.5f, 1.5f);
+            float elapsed = 0;
+            float time = 1;
+            while (elapsed < time)
+            {
+                elapsed += Time.deltaTime;
+                float t = elapsed / time;
+                angelicChoir.source.pitch = Mathf.Lerp(angelicChoir.source.pitch, randomPitch, t);
+                yield return null;
+            }
+            angelicChoir.source.pitch = randomPitch;
+        }
+        isCoroutineRunning = false;
     }
 
     public float easeInQuint(float x)

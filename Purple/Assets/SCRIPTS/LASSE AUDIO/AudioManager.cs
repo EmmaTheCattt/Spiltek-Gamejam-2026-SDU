@@ -15,7 +15,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] public Sound[] TwoDSounds;
     [SerializeField] public Sound[] transitionSounds;
 
-    [SerializeField] Material purpleMaterial;
+    [SerializeField] Material ThreeDmaterial;
 
     private void Awake()
     {
@@ -171,6 +171,7 @@ public class AudioManager : MonoBehaviour
     {
         while (true)
         {
+            Debug.Log("");
             Sound walkSound = Array.Find(walkSounds, sound => sound.name == "Walk");
 
             walkSound.source.pitch = UnityEngine.Random.Range((float)0.8, 1.2f);
@@ -180,6 +181,19 @@ public class AudioManager : MonoBehaviour
             yield return new WaitForSeconds(delay);
         }
     }
+
+    /*public IEnumerator PlayRandomWalkSFX()
+    {
+        int lastIndex = -1;
+        int randomIndex;
+        do
+        {
+            randomIndex = UnityEngine.Random.Range(0, walkSounds.Length);
+        } while (randomIndex == lastIndex);
+        var randomWalkSound = walkSounds[randomIndex];
+        randomWalkSound.source.Play();
+        Debug.Log("Playing Walk sound");
+    }*/
 
     public void PlayRandomSlimeSFX()
     {
@@ -211,8 +225,8 @@ public class AudioManager : MonoBehaviour
     public void PlaySlimeGroundSound(Material mat)
     {
         Debug.Log(mat.color);
-        Debug.Log(purpleMaterial);
-        if (mat.color == purpleMaterial.color)
+        Debug.Log(ThreeDmaterial);
+        if (mat.color == ThreeDmaterial.color)
         {
             PlayRandomSlimeSFX();
         }

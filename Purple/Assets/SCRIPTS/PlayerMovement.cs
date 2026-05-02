@@ -88,9 +88,7 @@ public class PlayerMovement : MonoBehaviour
             Flip();
         }
         
-        WallJump();
-        CalculateSlimeSound();
-        
+        WallJump();       
     }
 
     private void FixedUpdate()
@@ -248,12 +246,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (IsWalled() && !isGrounded && moveVelocity.x != 0f && !BlackWall())
         {
-            var wallsound = Array.Find(AudioManager.instance.TwoDSounds, s => s.name == "Wall");
+            /*var wallsound = Array.Find(AudioManager.instance.TwoDSounds, s => s.name == "Wall");
             if (!wallsound.source.isPlaying)
             {
                 AudioManager.instance.Play2DSound("Wall");
                 Debug.Log("WallingSounding");
-            }
+            }*/ // DIDNT WORK
             isWallSliding = true;
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Clamp(rb.linearVelocity.y, -wallSlidingSpeed, float.MaxValue));
         }
@@ -411,24 +409,6 @@ public class PlayerMovement : MonoBehaviour
         jumpStart = false;
         isDescending = true;
         isJumping = false;
-    }
-
-    //LASSE
-    public void CalculateSlimeSound()
-    {
-        AudioManager.instance.WalkingLoop();
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity))
-        {
-            var material = hit.collider.gameObject.GetComponent<MeshRenderer>().material;
-            Debug.Log(material);
-            if (isGrounded)
-            {
-                Debug.Log("2D Slime Sound");
-                AudioManager.instance.PlaySlimeGroundSound(material);
-            }
-
-        }
     }
 }
 
