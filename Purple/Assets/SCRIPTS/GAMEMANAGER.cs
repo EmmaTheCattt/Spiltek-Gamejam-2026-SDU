@@ -24,6 +24,10 @@ public class GAMEMANAGER : MonoBehaviour
     public int Max_score_Level_2;
     public float Max_time_Level_2;
 
+    [Header("LEVEL 3")]
+    public int Max_score_Level_3;
+    public float Max_time_Level_3;
+
     [Header("LOADED?")]
     public bool loaded = false;
 
@@ -60,6 +64,14 @@ public class GAMEMANAGER : MonoBehaviour
             Max_score = Max_score_Level_2;
             Current_time = Max_time_Level_2;
             Max_time = Max_time_Level_2;
+            loaded = true;
+        }
+
+        if (SceneManager.GetActiveScene().name == "2D_Level_1" && loaded == false)
+        {
+            Max_score = Max_score_Level_3;
+            Current_time = Max_time_Level_3;
+            Max_time = Max_time_Level_3;
             loaded = true;
         }
 
