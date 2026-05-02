@@ -263,6 +263,11 @@ public class TANK_SCRIPT : MonoBehaviour
             if (hit.distance <= 0.25)
             {
                 SIDEWAYS_VEL = Vector3.zero;
+
+                if (hit.collider.CompareTag("PAINTING"))
+                {
+                    hit.collider.gameObject.GetComponent<PAINTING_TRANSPORT>().transport();
+                }
             }
         }
         Debug.DrawRay(transform.position + transform.TransformDirection(Vector3.left), SIDEWAYS_VEL * 2);
@@ -272,6 +277,11 @@ public class TANK_SCRIPT : MonoBehaviour
             if (hit.distance <= 0.5)
             {
                 SIDEWAYS_VEL = Vector3.zero;
+
+                if (hit.collider.CompareTag("PAINTING"))
+                {
+                    hit.collider.gameObject.GetComponent<PAINTING_TRANSPORT>().transport();
+                }
             }
         }
 
@@ -281,6 +291,11 @@ public class TANK_SCRIPT : MonoBehaviour
             if (hit.distance <= 0.25)
             {
                 SIDEWAYS_VEL = Vector3.zero;
+
+                if (hit.collider.CompareTag("PAINTING"))
+                {
+                    hit.collider.gameObject.GetComponent<PAINTING_TRANSPORT>().transport();
+                }
             }
         }
         Debug.DrawRay(transform.position + transform.TransformDirection(Vector3.right), SIDEWAYS_VEL * 2);
@@ -290,6 +305,11 @@ public class TANK_SCRIPT : MonoBehaviour
             if (hit.distance <= 0.5)
             {
                 SIDEWAYS_VEL = Vector3.zero;
+
+                if (hit.collider.CompareTag("PAINTING"))
+                {
+                    hit.collider.gameObject.GetComponent<PAINTING_TRANSPORT>().transport();
+                }
             }
         }
 
@@ -299,6 +319,11 @@ public class TANK_SCRIPT : MonoBehaviour
             if (hit.distance <= 0.25)
             {
                 SIDEWAYS_VEL = Vector3.zero;
+
+                if (hit.collider.CompareTag("PAINTING"))
+                {
+                    hit.collider.gameObject.GetComponent<PAINTING_TRANSPORT>().transport();
+                }
             }
         }
         Debug.DrawRay(transform.position + transform.TransformDirection(Vector3.forward), SIDEWAYS_VEL * 2);
@@ -308,6 +333,11 @@ public class TANK_SCRIPT : MonoBehaviour
             if (hit.distance <= 0.5)
             {
                 SIDEWAYS_VEL = Vector3.zero;
+
+                if (hit.collider.CompareTag("PAINTING"))
+                {
+                    hit.collider.gameObject.GetComponent<PAINTING_TRANSPORT>().transport();
+                }
             }
         }
 
@@ -317,6 +347,11 @@ public class TANK_SCRIPT : MonoBehaviour
             if (hit.distance <= 0.25)
             {
                 SIDEWAYS_VEL = Vector3.zero;
+
+                if (hit.collider.CompareTag("PAINTING"))
+                {
+                    hit.collider.gameObject.GetComponent<PAINTING_TRANSPORT>().transport();
+                }
             }
         }
         Debug.DrawRay(transform.position + transform.TransformDirection(Vector3.back), SIDEWAYS_VEL * 2);
@@ -326,6 +361,11 @@ public class TANK_SCRIPT : MonoBehaviour
             if (hit.distance <= 0.5)
             {
                 SIDEWAYS_VEL = Vector3.zero;
+
+                if (hit.collider.CompareTag("PAINTING"))
+                {
+                    hit.collider.gameObject.GetComponent<PAINTING_TRANSPORT>().transport();
+                }
             }
         }
     }
