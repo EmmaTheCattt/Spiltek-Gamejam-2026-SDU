@@ -67,7 +67,7 @@ public class GAMEMANAGER : MonoBehaviour
             loaded = true;
         }
 
-        if (SceneManager.GetActiveScene().name == "2D_LEVEL_1" && loaded == false)
+        if (SceneManager.GetActiveScene().name == "LEVEL_3" && loaded == false)
         {
             Max_score = Max_score_Level_3;
             Current_time = Max_time_Level_3;
