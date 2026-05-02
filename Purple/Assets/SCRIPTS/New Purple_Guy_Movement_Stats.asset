@@ -17,6 +17,6 @@ MonoBehaviour:
   groundDeceleration: 20
   airAcceleration: 5
   airDeceleration: 5
-  jumpHeight: 7
+  jumpHeight: 8
   numberOfJumpsAllowed: 4
   jumpCoyoteTime: 0.1

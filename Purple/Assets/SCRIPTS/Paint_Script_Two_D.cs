@@ -25,7 +25,11 @@ public class Paint_Script_Two_D : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            purple = true;
+            if (!purple)
+            {
+                purple = true;
+                GAMEMANAGER.GM.score++;
+            }
         }
     }
 }
