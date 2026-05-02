@@ -225,10 +225,14 @@ public class PlayerMovement : MonoBehaviour
     {
         return Physics2D.OverlapCircle(wallCheck.position, 0.2f, LayerMask.GetMask("Wall"));
     }
+    private bool BlackWall()
+    {
+        return Physics2D.OverlapCircle(wallCheck.position, 0.2f, LayerMask.GetMask("BlackWall"));
+    }
 
     private void WallSlide()
     {
-        if (IsWalled() && !isGrounded && moveVelocity.x != 0f)
+        if (IsWalled() && !isGrounded && moveVelocity.x != 0f && !BlackWall())
         {
             isWallSliding = true;
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Clamp(rb.linearVelocity.y, -wallSlidingSpeed, float.MaxValue));
