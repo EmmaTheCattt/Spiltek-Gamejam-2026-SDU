@@ -15,5 +15,9 @@ public class CHANGE_SCORE : TEXT
         {
             CONGRATS.SetActive(true);
         }
+        else
+        {
+            CONGRATS.SetActive(false);
+        }
     }
 }
