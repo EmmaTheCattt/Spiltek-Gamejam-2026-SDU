@@ -17,6 +17,7 @@ public class TANK_SCRIPT : MonoBehaviour
     public GameObject barrel;
     public GameObject Bullet;
     public GameObject Body;
+    public GameObject RIGHT_HAND;
 
     public Color Bullet_COLOR;
 
@@ -149,6 +150,20 @@ public class TANK_SCRIPT : MonoBehaviour
             SIDEWAYS_VEL = SIDEWAYS_VEL * speed;
         }
 
+        if (right)
+        {
+            SIDEWAYS_VEL = new Vector3(RIGHT_HAND.transform.position.x - transform.position.x, 0, RIGHT_HAND.transform.position.z - transform.position.z);
+            SIDEWAYS_VEL = SIDEWAYS_VEL.normalized;
+            SIDEWAYS_VEL = SIDEWAYS_VEL * speed;
+        }
+
+        if (left)
+        {
+            SIDEWAYS_VEL = new Vector3(RIGHT_HAND.transform.position.x - transform.position.x, 0, RIGHT_HAND.transform.position.z - transform.position.z);
+            SIDEWAYS_VEL = SIDEWAYS_VEL.normalized;
+            SIDEWAYS_VEL = -SIDEWAYS_VEL * speed;
+        }
+
         if (back)
         {
             SIDEWAYS_VEL = new Vector3(barrel.transform.position.x - transform.position.x, 0, barrel.transform.position.z - transform.position.z);
@@ -169,8 +184,9 @@ public class TANK_SCRIPT : MonoBehaviour
         if (ground == true)
         {
             new_fall_speed = fall_speed;
-            SIDEWAYS_VEL = Vector3.zero;
         }
+
+        SIDEWAYS_VEL = Vector3.zero;
     }
 
     void ground_check()
