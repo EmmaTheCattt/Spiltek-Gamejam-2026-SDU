@@ -165,7 +165,7 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(JumpLimit());
         }
         //When we release the jump button
-        if (Purple_Guy_Input_Manager.jumpIsReleased)
+        if (Purple_Guy_Input_Manager.jumpIsReleased && !isDescending)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y*0.3f);
             isDescending = true;
@@ -173,15 +173,15 @@ public class PlayerMovement : MonoBehaviour
 
 
         //Initiate jump with coyote time
-        if (jumpStart && GetIsGrounded() && jumpsUsed < moveStats.numberOfJumpsAllowed)
+        if (jumpStart && GetIsGrounded())
         {
             InitiateJump(1);
         }
         //Double jump
-        else if (isDescending && jumpsUsed < moveStats.numberOfJumpsAllowed)
-        {
-            InitiateJump(1);
-        }
+        //else if (isDescending && jumpsUsed < moveStats.numberOfJumpsAllowed)
+        //{
+        //    InitiateJump(1);
+        //}
         ////Air jump after coyote time lapsed
         //else if (coyoteTimer <= 0f && isFalling && jumpsUsed < moveStats.numberOfJumpsAllowed - 1)
         //{
