@@ -2315,8 +2315,12 @@ PrefabInstance:
       value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 7273710372917115901, guid: ef540fcb4812752418c440ec1424825a, type: 3}
+      propertyPath: 'cleared.Array.data[0]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273710372917115901, guid: ef540fcb4812752418c440ec1424825a, type: 3}
       propertyPath: 'cleared.Array.data[1]'
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7888083926177537999, guid: ef540fcb4812752418c440ec1424825a, type: 3}
       propertyPath: m_Name
