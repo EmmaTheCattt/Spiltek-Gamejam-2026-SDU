@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     public GameObject SIGN1;
     public GameObject SIGN2;
     public GameObject SIGN3;
+    public GameObject SIGN4;
+    public GameObject SIGN5;
     private float playerHalfHeight;
 
     public Rigidbody2D rb;
@@ -166,7 +168,7 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(JumpLimit());
         }
         //When we release the jump button
-        if (Purple_Guy_Input_Manager.jumpIsReleased)
+        if (Purple_Guy_Input_Manager.jumpIsReleased && !isDescending)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y*0.3f);
             isDescending = true;
@@ -312,6 +314,14 @@ public class PlayerMovement : MonoBehaviour
         {
             SIGN1.SetActive(true);
         }
+        if (collision.gameObject.CompareTag("Sign4"))
+        {
+            SIGN4.SetActive(true);
+        }
+        if (collision.gameObject.CompareTag("Sign5"))
+        {
+            SIGN5.SetActive(true);
+        }
     }
     public void OnTriggerExit2D(Collider2D collision)
     {
@@ -326,6 +336,14 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Sign1"))
         {
             SIGN1.SetActive(false);
+        }
+        if (collision.gameObject.CompareTag("Sign4"))
+        {
+            SIGN4.SetActive(false);
+        }
+        if (collision.gameObject.CompareTag("Sign5"))
+        {
+            SIGN5.SetActive(false);
         }
     }
     //public void OnCollisionEnter2D(Collision2D collision)

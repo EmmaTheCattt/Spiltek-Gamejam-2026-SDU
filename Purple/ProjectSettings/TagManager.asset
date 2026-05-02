@@ -12,6 +12,8 @@ TagManager:
   - Sign1
   - Sign3
   - Sign2
+  - Sign4
+  - Sign5
   layers:
   - Default
   - TransparentFX
