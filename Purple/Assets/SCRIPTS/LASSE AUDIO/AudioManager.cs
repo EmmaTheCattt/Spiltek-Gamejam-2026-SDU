@@ -13,6 +13,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private Sound[] walkSounds;
     [SerializeField] private Sound[] slimeSounds;
     [SerializeField] public Sound[] TwoDSounds;
+    [SerializeField] public Sound[] transitionSounds;
 
     [SerializeField] Material purpleMaterial;
 
@@ -60,6 +61,16 @@ public class AudioManager : MonoBehaviour
         }
 
         foreach(Sound s in TwoDSounds)
+        {
+            s.source = gameObject.AddComponent<AudioSource>();
+            s.source.clip = s.clip;
+            s.source.volume = s.volume;
+            s.source.loop = s.loop;
+            s.source.pitch = s.pitch;
+            s.source.playOnAwake = s.PlayOnAwake;
+        }
+
+        foreach(Sound s in transitionSounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
@@ -217,6 +228,15 @@ public class AudioManager : MonoBehaviour
         {
             if (sound.name == "AngelicChoir") continue;
             sound.source.volume = volume;
+        }
+    }
+
+    public void PlayTransitionSound()
+    {
+        foreach(var sound in transitionSounds)
+        {
+            sound.source.Play();
+            Debug.Log("transitionSound");
         }
     }
 

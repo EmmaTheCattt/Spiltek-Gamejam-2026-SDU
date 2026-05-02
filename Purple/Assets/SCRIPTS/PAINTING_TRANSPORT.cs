@@ -7,6 +7,7 @@ public class PAINTING_TRANSPORT : MonoBehaviour
 
     public void transport()
     {
+        AudioManager.instance.PlayTransitionSound();
         SceneManager.LoadScene(SCENE_TRANFER);
     }
 }

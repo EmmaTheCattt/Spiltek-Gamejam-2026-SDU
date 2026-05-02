@@ -239,6 +239,86 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2708564930478841045, guid: b87a862fbfd87944cb0ff64163420679, type: 3}
+      propertyPath: TransitionSound.name
+      value: TRANS
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708564930478841045, guid: b87a862fbfd87944cb0ff64163420679, type: 3}
+      propertyPath: TransitionSound.pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708564930478841045, guid: b87a862fbfd87944cb0ff64163420679, type: 3}
+      propertyPath: TransitionSound.volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708564930478841045, guid: b87a862fbfd87944cb0ff64163420679, type: 3}
+      propertyPath: transitionSounds.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708564930478841045, guid: b87a862fbfd87944cb0ff64163420679, type: 3}
+      propertyPath: transitionSounds.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: eb24bf110bb987e4cb4663518f90de27, type: 3}
+    - target: {fileID: 2708564930478841045, guid: b87a862fbfd87944cb0ff64163420679, type: 3}
+      propertyPath: transitionSounds.Array.data[0].name
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708564930478841045, guid: b87a862fbfd87944cb0ff64163420679, type: 3}
+      propertyPath: transitionSounds.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 58a472626a78305459f5f98ea57effc3, type: 3}
+    - target: {fileID: 2708564930478841045, guid: b87a862fbfd87944cb0ff64163420679, type: 3}
+      propertyPath: transitionSounds.Array.data[1].name
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708564930478841045, guid: b87a862fbfd87944cb0ff64163420679, type: 3}
+      propertyPath: transitionSounds.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 17d803b3776e54a4994f93d7bcf78515, type: 3}
+    - target: {fileID: 2708564930478841045, guid: b87a862fbfd87944cb0ff64163420679, type: 3}
+      propertyPath: transitionSounds.Array.data[2].name
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708564930478841045, guid: b87a862fbfd87944cb0ff64163420679, type: 3}
+      propertyPath: transitionSounds.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: ce67274d2a72472488c5742da543d334, type: 3}
+    - target: {fileID: 2708564930478841045, guid: b87a862fbfd87944cb0ff64163420679, type: 3}
+      propertyPath: transitionSounds.Array.data[3].name
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708564930478841045, guid: b87a862fbfd87944cb0ff64163420679, type: 3}
+      propertyPath: transitionSounds.Array.data[0].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708564930478841045, guid: b87a862fbfd87944cb0ff64163420679, type: 3}
+      propertyPath: transitionSounds.Array.data[1].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708564930478841045, guid: b87a862fbfd87944cb0ff64163420679, type: 3}
+      propertyPath: transitionSounds.Array.data[2].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708564930478841045, guid: b87a862fbfd87944cb0ff64163420679, type: 3}
+      propertyPath: transitionSounds.Array.data[3].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708564930478841045, guid: b87a862fbfd87944cb0ff64163420679, type: 3}
+      propertyPath: transitionSounds.Array.data[0].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708564930478841045, guid: b87a862fbfd87944cb0ff64163420679, type: 3}
+      propertyPath: transitionSounds.Array.data[1].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708564930478841045, guid: b87a862fbfd87944cb0ff64163420679, type: 3}
+      propertyPath: transitionSounds.Array.data[2].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2708564930478841045, guid: b87a862fbfd87944cb0ff64163420679, type: 3}
+      propertyPath: transitionSounds.Array.data[3].volume
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6478935599511919368, guid: b87a862fbfd87944cb0ff64163420679, type: 3}
       propertyPath: m_Name
       value: AudioManager
