@@ -110,6 +110,7 @@ public class TANK_SCRIPT : MonoBehaviour
         }
 
         Vector3 moving = new Vector3(0, UP_VEL, 0);
+        Checkwall();
         transform.position += (moving * Time.fixedDeltaTime) + (SIDEWAYS_VEL * Time.deltaTime);
 
         if (ground == false)
@@ -139,5 +140,62 @@ public class TANK_SCRIPT : MonoBehaviour
                 UP_VEL = 0;
             }
         }
+    }
+
+    void Checkwall()
+    {
+        RaycastHit hit;
+        bool wall = true;
+
+        //CENTER
+        if (Physics.Raycast(transform.position, SIDEWAYS_VEL, out hit))
+        {
+            if (hit.distance <= 1)
+            {
+                SIDEWAYS_VEL = Vector3.zero;
+            }
+        }
+        Debug.DrawRay(transform.position, SIDEWAYS_VEL * 2);
+
+        //Left
+        if (Physics.Raycast(transform.position + transform.TransformDirection(Vector3.left), SIDEWAYS_VEL, out hit))
+        {
+            if (hit.distance <= 0.25)
+            {
+                SIDEWAYS_VEL = Vector3.zero;
+            }
+        }
+        Debug.DrawRay(transform.position + transform.TransformDirection(Vector3.left), SIDEWAYS_VEL * 2);
+
+        //RIGHT
+        if (Physics.Raycast(transform.position + transform.TransformDirection(Vector3.right), SIDEWAYS_VEL, out hit))
+        {
+            if (hit.distance <= 0.25)
+            {
+                SIDEWAYS_VEL = Vector3.zero;
+            }
+        }
+        Debug.DrawRay(transform.position + transform.TransformDirection(Vector3.right), SIDEWAYS_VEL * 2);
+
+
+        //FORWARD
+        if (Physics.Raycast(transform.position + transform.TransformDirection(Vector3.forward), SIDEWAYS_VEL, out hit))
+        {
+            if (hit.distance <= 0.25)
+            {
+                SIDEWAYS_VEL = Vector3.zero;
+            }
+        }
+        Debug.DrawRay(transform.position + transform.TransformDirection(Vector3.forward), SIDEWAYS_VEL * 2);
+
+        //BACK
+        if (Physics.Raycast(transform.position + transform.TransformDirection(Vector3.back), SIDEWAYS_VEL, out hit))
+        {
+            if (hit.distance <= 0.25)
+            {
+                SIDEWAYS_VEL = Vector3.zero;
+            }
+        }
+        Debug.DrawRay(transform.position + transform.TransformDirection(Vector3.back), SIDEWAYS_VEL * 2);
     }
 }

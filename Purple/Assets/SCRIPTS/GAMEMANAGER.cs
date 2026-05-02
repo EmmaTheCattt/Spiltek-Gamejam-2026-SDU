@@ -14,6 +14,8 @@ public class GAMEMANAGER : MonoBehaviour
     public float Current_time;
     public float Max_time;
 
+    public bool[] cleared;
+
     [Header("LEVEL 1")]
     public int Max_score_Level_1;
     public float Max_time_Level_1;
