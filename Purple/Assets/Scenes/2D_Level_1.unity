@@ -14796,6 +14796,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Purple Guy
       objectReference: {fileID: 0}
+    - target: {fileID: 5152987450186328025, guid: d17a40c127ddb2b4b8250ff52463e890, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7559012035606650091, guid: d17a40c127ddb2b4b8250ff52463e890, type: 3}
       propertyPath: m_LocalPosition.z
       value: -8
@@ -14819,6 +14823,10 @@ PrefabInstance:
     - target: {fileID: 8995549655604341110, guid: d17a40c127ddb2b4b8250ff52463e890, type: 3}
       propertyPath: groundLayer.m_Bits
       value: 1792
+      objectReference: {fileID: 0}
+    - target: {fileID: 9130414394487869458, guid: d17a40c127ddb2b4b8250ff52463e890, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.509
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

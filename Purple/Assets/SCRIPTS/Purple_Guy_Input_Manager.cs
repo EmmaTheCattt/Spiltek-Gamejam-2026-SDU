@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class Purple_Guy_Input_Manager : MonoBehaviour
 {
-    public static PlayerInput playerInput;
+    private static PlayerInput playerInput;
     public static Vector2 movement;
     public static bool jumpWasPressed;
     public static bool jumpIsHeld;

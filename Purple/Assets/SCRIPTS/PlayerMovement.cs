@@ -91,12 +91,14 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         Jump();
-        if (isGrounded)
+        if (GetIsGrounded())
         {
+            isGrounded = true;
             Move(moveStats.groundAcceleration, moveStats.groundDeceleration, Purple_Guy_Input_Manager.movement);
         }
         else
         {
+            isGrounded = false;
             Move(moveStats.airAcceleration, moveStats.airDeceleration, Purple_Guy_Input_Manager.movement);
         }
     }
@@ -104,8 +106,7 @@ public class PlayerMovement : MonoBehaviour
     private void Move(float acceleration, float deceleration, Vector2 moveInput)
     {
         if (moveInput != Vector2.zero)
-        {
-            //TurnCheck(moveInput);
+        { 
 
             Vector2 targetVelocity = Vector2.zero;
             targetVelocity = new Vector2(moveInput.x, 05) * moveStats.maxWalkSpeed;
@@ -165,7 +166,7 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(JumpLimit());
         }
         //When we release the jump button
-        if (Purple_Guy_Input_Manager.jumpIsReleased && !isDescending)
+        if (Purple_Guy_Input_Manager.jumpIsReleased)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y*0.3f);
             isDescending = true;
