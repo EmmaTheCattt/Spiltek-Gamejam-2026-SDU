@@ -28,6 +28,14 @@ public class GAMEMANAGER : MonoBehaviour
     public int Max_score_Level_3;
     public float Max_time_Level_3;
 
+    [Header("LEVEL 4")]
+    public int Max_score_Level_4;
+    public float Max_time_Level_4;
+
+    [Header("LEVEL 5")]
+    public int Max_score_Level_5;
+    public float Max_time_Level_5;
+
     [Header("LOADED?")]
     public bool loaded = false;
 
@@ -72,6 +80,22 @@ public class GAMEMANAGER : MonoBehaviour
             Max_score = Max_score_Level_3;
             Current_time = Max_time_Level_3;
             Max_time = Max_time_Level_3;
+            loaded = true;
+        }
+
+        if (SceneManager.GetActiveScene().name == "LEVEL_4" && loaded == false)
+        {
+            Max_score = Max_score_Level_4;
+            Current_time = Max_time_Level_4;
+            Max_time = Max_time_Level_4;
+            loaded = true;
+        }
+
+        if (SceneManager.GetActiveScene().name == "LEVEL_5" && loaded == false)
+        {
+            Max_score = Max_score_Level_5;
+            Current_time = Max_time_Level_5;
+            Max_time = Max_time_Level_5;
             loaded = true;
         }
 
