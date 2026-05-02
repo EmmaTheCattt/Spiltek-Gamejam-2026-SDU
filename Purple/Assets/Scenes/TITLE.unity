@@ -431,7 +431,7 @@ MonoBehaviour:
   Max_score: 0
   Current_time: 0
   Max_time: 0
-  cleared: 0000000000
+  cleared: 0100000000
   Max_score_Level_1: 2500
   Max_time_Level_1: 120
   Max_score_Level_2: 2500
