@@ -145,6 +145,95 @@ public class TANK_SCRIPT : MonoBehaviour
                 ground = true;
                 UP_VEL = 0;
             }
+
+            if (hit.distance < height - 0.05f)
+            {
+                transform.position += new Vector3(0, 0.005f, 0);
+            }
+        }
+
+        //left
+        if (Physics.Raycast(transform.position + transform.TransformDirection(Vector3.left), transform.TransformDirection(Vector3.down), out hit, OBJECTS))
+        {
+            if (hit.distance <= height)
+            {
+                Debug.Log(hit.distance);
+                ground = true;
+                UP_VEL = 0;
+            }
+        }
+
+        if (Physics.Raycast(transform.position + transform.TransformDirection(Vector3.left) / 2, transform.TransformDirection(Vector3.down), out hit, OBJECTS))
+        {
+            if (hit.distance <= height)
+            {
+                Debug.Log(hit.distance);
+                ground = true;
+                UP_VEL = 0;
+            }
+        }
+
+        //right
+        if (Physics.Raycast(transform.position + transform.TransformDirection(Vector3.right), transform.TransformDirection(Vector3.down), out hit, OBJECTS))
+        {
+            if (hit.distance <= height)
+            {
+                Debug.Log(hit.distance);
+                ground = true;
+                UP_VEL = 0;
+            }
+        }
+
+        if (Physics.Raycast(transform.position + transform.TransformDirection(Vector3.right) / 2, transform.TransformDirection(Vector3.down), out hit, OBJECTS))
+        {
+            if (hit.distance <= height)
+            {
+                Debug.Log(hit.distance);
+                ground = true;
+                UP_VEL = 0;
+            }
+        }
+
+        //FORWARD
+        if (Physics.Raycast(transform.position + transform.TransformDirection(Vector3.forward), transform.TransformDirection(Vector3.down), out hit, OBJECTS))
+        {
+            if (hit.distance <= height)
+            {
+                Debug.Log(hit.distance);
+                ground = true;
+                UP_VEL = 0;
+            }
+        }
+
+        if (Physics.Raycast(transform.position + transform.TransformDirection(Vector3.forward) / 2, transform.TransformDirection(Vector3.down), out hit, OBJECTS))
+        {
+            if (hit.distance <= height)
+            {
+                Debug.Log(hit.distance);
+                ground = true;
+                UP_VEL = 0;
+            }
+        }
+
+        //back
+        if (Physics.Raycast(transform.position + transform.TransformDirection(Vector3.back), transform.TransformDirection(Vector3.down), out hit, OBJECTS))
+        {
+            if (hit.distance <= height)
+            {
+                Debug.Log(hit.distance);
+                ground = true;
+                UP_VEL = 0;
+            }
+        }
+
+        if (Physics.Raycast(transform.position + transform.TransformDirection(Vector3.back) / 2, transform.TransformDirection(Vector3.down), out hit, OBJECTS))
+        {
+            if (hit.distance <= height)
+            {
+                Debug.Log(hit.distance);
+                ground = true;
+                UP_VEL = 0;
+            }
         }
     }
 
@@ -173,6 +262,14 @@ public class TANK_SCRIPT : MonoBehaviour
         }
         Debug.DrawRay(transform.position + transform.TransformDirection(Vector3.left), SIDEWAYS_VEL * 2);
 
+        if (Physics.Raycast(transform.position + transform.TransformDirection(Vector3.left) / 2, SIDEWAYS_VEL, out hit))
+        {
+            if (hit.distance <= 0.5)
+            {
+                SIDEWAYS_VEL = Vector3.zero;
+            }
+        }
+
         //RIGHT
         if (Physics.Raycast(transform.position + transform.TransformDirection(Vector3.right), SIDEWAYS_VEL, out hit))
         {
@@ -183,6 +280,13 @@ public class TANK_SCRIPT : MonoBehaviour
         }
         Debug.DrawRay(transform.position + transform.TransformDirection(Vector3.right), SIDEWAYS_VEL * 2);
 
+        if (Physics.Raycast(transform.position + transform.TransformDirection(Vector3.right) / 2, SIDEWAYS_VEL, out hit))
+        {
+            if (hit.distance <= 0.5)
+            {
+                SIDEWAYS_VEL = Vector3.zero;
+            }
+        }
 
         //FORWARD
         if (Physics.Raycast(transform.position + transform.TransformDirection(Vector3.forward), SIDEWAYS_VEL, out hit))
@@ -194,6 +298,14 @@ public class TANK_SCRIPT : MonoBehaviour
         }
         Debug.DrawRay(transform.position + transform.TransformDirection(Vector3.forward), SIDEWAYS_VEL * 2);
 
+        if (Physics.Raycast(transform.position + transform.TransformDirection(Vector3.forward) / 2, SIDEWAYS_VEL, out hit))
+        {
+            if (hit.distance <= 0.5)
+            {
+                SIDEWAYS_VEL = Vector3.zero;
+            }
+        }
+
         //BACK
         if (Physics.Raycast(transform.position + transform.TransformDirection(Vector3.back), SIDEWAYS_VEL, out hit))
         {
@@ -203,5 +315,13 @@ public class TANK_SCRIPT : MonoBehaviour
             }
         }
         Debug.DrawRay(transform.position + transform.TransformDirection(Vector3.back), SIDEWAYS_VEL * 2);
+
+        if (Physics.Raycast(transform.position + transform.TransformDirection(Vector3.back) / 2, SIDEWAYS_VEL, out hit))
+        {
+            if (hit.distance <= 0.5)
+            {
+                SIDEWAYS_VEL = Vector3.zero;
+            }
+        }
     }
 }

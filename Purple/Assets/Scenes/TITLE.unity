@@ -434,7 +434,7 @@ MonoBehaviour:
   cleared: 0100000000
   Max_score_Level_1: 2500
   Max_time_Level_1: 120
-  Max_score_Level_2: 8000
+  Max_score_Level_2: 10000
   Max_time_Level_2: 60
   loaded: 0
 --- !u!1 &609298322
