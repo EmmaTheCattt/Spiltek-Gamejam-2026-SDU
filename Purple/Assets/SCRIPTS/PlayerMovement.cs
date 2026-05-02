@@ -114,6 +114,7 @@ public class PlayerMovement : MonoBehaviour
             targetVelocity = new Vector2(moveInput.x, 05) * moveStats.maxWalkSpeed;
             moveVelocity = Vector2.Lerp(moveVelocity, targetVelocity, acceleration * Time.fixedDeltaTime);
             rb.linearVelocity = new Vector2(moveVelocity.x, rb.linearVelocity.y);
+            Debug.Log("move");
         }
         else if (moveInput == Vector2.zero)
         {
@@ -168,7 +169,7 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(JumpLimit());
         }
         //When we release the jump button
-        if (Purple_Guy_Input_Manager.jumpIsReleased && !isDescending)
+        if (Purple_Guy_Input_Manager.jumpIsReleased&& !isDescending)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y*0.3f);
             isDescending = true;
@@ -321,6 +322,10 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Sign5"))
         {
             SIGN5.SetActive(true);
+        }
+        if (collision.gameObject.CompareTag("PAINTING"))
+        {
+            collision.gameObject.GetComponent<PAINTING_TRANSPORT>().transport();
         }
     }
     public void OnTriggerExit2D(Collider2D collision)

@@ -5534,7 +5534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3909ef0c9a233e04e84b4b9047b12f47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  SCENE_TRANFER: LEVEL_3_2
+  SCENE_TRANFER: 2D_LEVEL_1
 --- !u!65 &1968881726
 BoxCollider:
   m_ObjectHideFlags: 0
