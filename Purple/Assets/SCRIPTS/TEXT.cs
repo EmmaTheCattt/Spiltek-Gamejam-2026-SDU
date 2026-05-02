@@ -4,6 +4,12 @@ using TMPro;
 public class TEXT : MonoBehaviour
 {
     public TextMeshProUGUI TEXT_text;
+    public GameObject CONGRATS;
+
+    private void Update()
+    {
+        check_score();
+    }
 
     public void check_score()
     {

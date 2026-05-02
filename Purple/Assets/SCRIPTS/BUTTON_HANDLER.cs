@@ -11,6 +11,12 @@ public class BUTTON_HANDLER : MonoBehaviour
     public GameObject[] buttons;
     public Image[] BUT_IMG;
 
+
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
     private void Update()
     {
         if (GAMEMANAGER.GM.cleared[0] == true)

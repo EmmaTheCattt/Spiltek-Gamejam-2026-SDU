@@ -62,5 +62,30 @@ public class GAMEMANAGER : MonoBehaviour
             Max_time = Max_time_Level_2;
             loaded = true;
         }
+
+        if (SceneManager.GetActiveScene().name != "TITLE")
+        {
+            check_input();
+        }
+    }
+
+    void check_input()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (Max_score <= score)
+            {
+                for(int i = 0; i < cleared.Length; i++)
+                {
+                    if (cleared[i] == false)
+                    {
+                        cleared[i] = true;
+                        loaded = false;
+                        SceneManager.LoadScene("TITLE");
+                        break;
+                    }
+                }
+            }
+        }
     }
 }
