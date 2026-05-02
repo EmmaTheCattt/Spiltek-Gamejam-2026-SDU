@@ -34,6 +34,10 @@ public class TANK_SCRIPT : MonoBehaviour
 
     public bool isMoving;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    public float Fire_rate;
+    public float time;
+
     void Start()
     {
         SPAWN = transform.position;
@@ -51,12 +55,14 @@ public class TANK_SCRIPT : MonoBehaviour
         jump = Input.GetKey(KeyCode.Space);
 
         BUL_DIR = new Vector3(barrel.transform.position.x - transform.position.x, barrel.transform.position.y - transform.position.y, barrel.transform.position.z - transform.position.z).normalized;
+        time += Time.deltaTime;
 
         ground_check();
         calculateIsMoving();
         
-        if (shoot)
+        if (shoot && Fire_rate < time)
         {
+            time = 0;
 
             BUL_DIR = new Vector3(barrel.transform.position.x - transform.position.x, barrel.transform.position.y - transform.position.y, barrel.transform.position.z - transform.position.z).normalized;
 
