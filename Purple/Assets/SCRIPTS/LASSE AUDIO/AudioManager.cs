@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class AudioManager : MonoBehaviour
@@ -159,6 +160,34 @@ public class AudioManager : MonoBehaviour
         _sound.source.volume = normalizedDistance;
         Debug.Log(_sound.source.volume);
         PlaySFX(_sound.name);
+    }
+
+    public void ControlSoundVolume(float volume)
+    {
+        foreach(var sound in sounds)
+        {
+            if (sound.name == "AngelicChoir") continue;
+            sound.source.volume = volume;
+        }
+    }
+
+    // called first
+    void OnEnable()
+    {
+        Debug.Log("OnEnable called");
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    // called second
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("OnSceneLoaded: " + scene.name);
+        Debug.Log(mode);
+        if (scene.name.StartsWith("LEVEL"))
+        {
+            StopMusic("TankSong");
+            PlayMusic("TankSong");
+        }
     }
 }
    

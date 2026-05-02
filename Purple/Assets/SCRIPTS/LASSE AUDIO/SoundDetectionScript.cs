@@ -22,9 +22,10 @@ public class SoundDetectionScript : MonoBehaviour
 
     public void CalculateDistance()
     {
-        Vector3 playerPos = player.transform.position;
+        GameObject tank = GameObject.FindWithTag("Tank");
+        Vector3 tankPos = tank.transform.position;
         Vector3 paintingPos = transform.position;
-        float dist = Vector3.Distance(playerPos, paintingPos);
+        float dist = Vector3.Distance(tankPos, paintingPos);
         Debug.Log($"Distance between player and painting is {dist}");
         AdjustVolume(dist);
 
@@ -42,9 +43,13 @@ public class SoundDetectionScript : MonoBehaviour
         }
 
         float normalizedDistance = Mathf.InverseLerp(detectionArea, 0, distance);
+        float normalizedDistanceOtherSound = Mathf.InverseLerp(0, detectionArea, distance);
         float finalVolume = easeInQuint(normalizedDistance);
+        float finalVolumeSound = easeInQuint(normalizedDistanceOtherSound);
         Debug.Log("Normalized Distance" + normalizedDistance);
         angelicChoir.source.volume = normalizedDistance;
+        Debug.Log(angelicChoir.source.volume);
+        AudioManager.instance.ControlSoundVolume(normalizedDistanceOtherSound);
     }
 
     public float easeInQuint(float x)

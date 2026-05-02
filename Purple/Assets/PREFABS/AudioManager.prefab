@@ -157,6 +157,13 @@ MonoBehaviour:
     loop: 0
     PlayOnAwake: 0
     source: {fileID: 0}
+  - name: TankSong
+    clip: {fileID: 8300000, guid: d90a31536fd4aac48b96056d021eee3e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
   walkSounds:
   - name: Walk1
     clip: {fileID: 8300000, guid: 1a4770fee0d05df409758f80d86f4631, type: 3}
@@ -299,5 +306,4 @@ MonoBehaviour:
     loop: 0
     PlayOnAwake: 0
     source: {fileID: 0}
-  tank: {fileID: 0}
   purpleMaterial: {fileID: 0}
