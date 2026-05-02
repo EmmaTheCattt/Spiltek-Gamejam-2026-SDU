@@ -248,6 +248,11 @@ public class TANK_SCRIPT : MonoBehaviour
             if (hit.distance <= 1)
             {
                 SIDEWAYS_VEL = Vector3.zero;
+                
+                if (hit.collider.CompareTag("PAINTING"))
+                {
+                    hit.collider.gameObject.GetComponent<PAINTING_TRANSPORT>().transport();
+                }
             }
         }
         Debug.DrawRay(transform.position, SIDEWAYS_VEL * 2);
