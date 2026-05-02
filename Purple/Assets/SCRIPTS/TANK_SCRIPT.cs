@@ -221,7 +221,7 @@ public class TANK_SCRIPT : MonoBehaviour
 
             if (hit.distance < height - 0.05f)
             {
-                transform.position += new Vector3(0, 0.005f, 0);
+                transform.position += new Vector3(0, 0.1f, 0);
             }
         }
 
