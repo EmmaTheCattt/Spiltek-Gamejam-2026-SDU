@@ -60,8 +60,8 @@ MonoBehaviour:
   Bullet_COLOR: {r: 0, g: 0, b: 0, a: 0}
   UP_VEL: 0
   height: 1
-  fall_speed: 2
-  fall_mult: 3
+  fall_speed: 2.5
+  fall_mult: 3.5
   speed: 5
   Max_Y_pos_fall: -10
   SIDEWAYS_VEL: {x: 0, y: 0, z: 0}
