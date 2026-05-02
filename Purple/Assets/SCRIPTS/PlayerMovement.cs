@@ -16,8 +16,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
 
     public TextMeshProUGUI TEXT_text;
-    public GameObject SIGN;
-
+    public GameObject SIGN1;
+    public GameObject SIGN2;
+    public GameObject SIGN3;
     private float playerHalfHeight;
 
     public Rigidbody2D rb;
@@ -298,16 +299,32 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Sign"))
+        if (collision.gameObject.CompareTag("Sign3"))
         {
-            SIGN.SetActive(true);
+            SIGN3.SetActive(true);
+        }
+        if (collision.gameObject.CompareTag("Sign2"))
+        {
+            SIGN2.SetActive(true);
+        }
+        if (collision.gameObject.CompareTag("Sign1"))
+        {
+            SIGN1.SetActive(true);
         }
     }
     public void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Sign"))
+        if (collision.gameObject.CompareTag("Sign3"))
         {
-            SIGN.SetActive(false);
+            SIGN3.SetActive(false);
+        }
+        if (collision.gameObject.CompareTag("Sign2"))
+        {
+            SIGN2.SetActive(false);
+        }
+        if (collision.gameObject.CompareTag("Sign1"))
+        {
+            SIGN1.SetActive(false);
         }
     }
     //public void OnCollisionEnter2D(Collision2D collision)
