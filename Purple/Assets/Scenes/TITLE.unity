@@ -3024,6 +3024,10 @@ PrefabInstance:
       value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 7273710372917115901, guid: ef540fcb4812752418c440ec1424825a, type: 3}
+      propertyPath: Max_time_Level_5
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273710372917115901, guid: ef540fcb4812752418c440ec1424825a, type: 3}
       propertyPath: Max_score_Level_1
       value: 2000
       objectReference: {fileID: 0}
@@ -3034,6 +3038,10 @@ PrefabInstance:
     - target: {fileID: 7273710372917115901, guid: ef540fcb4812752418c440ec1424825a, type: 3}
       propertyPath: Max_score_Level_4
       value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273710372917115901, guid: ef540fcb4812752418c440ec1424825a, type: 3}
+      propertyPath: Max_score_Level_5
+      value: 11000
       objectReference: {fileID: 0}
     - target: {fileID: 7273710372917115901, guid: ef540fcb4812752418c440ec1424825a, type: 3}
       propertyPath: 'cleared.Array.data[0]'
