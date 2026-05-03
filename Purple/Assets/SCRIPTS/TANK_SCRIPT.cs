@@ -34,6 +34,7 @@ public class TANK_SCRIPT : MonoBehaviour
     public Vector3 SPAWN;
 
     public LayerMask OBJECTS;
+    public Material PURPLE;
 
     public bool isMoving;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -241,6 +242,12 @@ public class TANK_SCRIPT : MonoBehaviour
             {
                 transform.position += new Vector3(0, 0.1f, 0);
             }
+
+            if (hit.collider.gameObject.CompareTag("POINT"))
+            {
+                SPAWN = new Vector3(hit.collider.gameObject.transform.position.x, this.gameObject.transform.position.y + 1, hit.collider.gameObject.transform.position.z);
+                hit.collider.gameObject.GetComponent<MeshRenderer>().material = PURPLE;
+            }
         }
 
         //left
@@ -252,6 +259,12 @@ public class TANK_SCRIPT : MonoBehaviour
                 ground = true;
                 UP_VEL = 0;
             }
+
+            if (hit.collider.gameObject.CompareTag("POINT"))
+            {
+                SPAWN = new Vector3(hit.collider.gameObject.transform.position.x, this.gameObject.transform.position.y + 1, hit.collider.gameObject.transform.position.z);
+                hit.collider.gameObject.GetComponent<MeshRenderer>().material = PURPLE;
+            }
         }
 
         if (Physics.Raycast(transform.position + transform.TransformDirection(Vector3.left) / 2, transform.TransformDirection(Vector3.down), out hit, OBJECTS))
@@ -261,6 +274,12 @@ public class TANK_SCRIPT : MonoBehaviour
                 Debug.Log(hit.distance);
                 ground = true;
                 UP_VEL = 0;
+            }
+
+            if (hit.collider.gameObject.CompareTag("POINT"))
+            {
+                SPAWN = new Vector3(hit.collider.gameObject.transform.position.x, this.gameObject.transform.position.y + 1, hit.collider.gameObject.transform.position.z);
+                hit.collider.gameObject.GetComponent<MeshRenderer>().material = PURPLE;
             }
         }
 
@@ -273,6 +292,12 @@ public class TANK_SCRIPT : MonoBehaviour
                 ground = true;
                 UP_VEL = 0;
             }
+
+            if (hit.collider.gameObject.CompareTag("POINT"))
+            {
+                SPAWN = new Vector3(hit.collider.gameObject.transform.position.x, this.gameObject.transform.position.y + 1, hit.collider.gameObject.transform.position.z);
+                hit.collider.gameObject.GetComponent<MeshRenderer>().material = PURPLE;
+            }
         }
 
         if (Physics.Raycast(transform.position + transform.TransformDirection(Vector3.right) / 2, transform.TransformDirection(Vector3.down), out hit, OBJECTS))
@@ -282,6 +307,12 @@ public class TANK_SCRIPT : MonoBehaviour
                 Debug.Log(hit.distance);
                 ground = true;
                 UP_VEL = 0;
+            }
+
+            if (hit.collider.gameObject.CompareTag("POINT"))
+            {
+                SPAWN = new Vector3(hit.collider.gameObject.transform.position.x, this.gameObject.transform.position.y + 1, hit.collider.gameObject.transform.position.z);
+                hit.collider.gameObject.GetComponent<MeshRenderer>().material = PURPLE;
             }
         }
 
@@ -294,6 +325,12 @@ public class TANK_SCRIPT : MonoBehaviour
                 ground = true;
                 UP_VEL = 0;
             }
+
+            if (hit.collider.gameObject.CompareTag("POINT"))
+            {
+                SPAWN = new Vector3(hit.collider.gameObject.transform.position.x, this.gameObject.transform.position.y + 1, hit.collider.gameObject.transform.position.z);
+                hit.collider.gameObject.GetComponent<MeshRenderer>().material = PURPLE;
+            }
         }
 
         if (Physics.Raycast(transform.position + transform.TransformDirection(Vector3.forward) / 2, transform.TransformDirection(Vector3.down), out hit, OBJECTS))
@@ -303,6 +340,12 @@ public class TANK_SCRIPT : MonoBehaviour
                 Debug.Log(hit.distance);
                 ground = true;
                 UP_VEL = 0;
+            }
+
+            if (hit.collider.gameObject.CompareTag("POINT"))
+            {
+                SPAWN = new Vector3(hit.collider.gameObject.transform.position.x, this.gameObject.transform.position.y + 1, hit.collider.gameObject.transform.position.z);
+                hit.collider.gameObject.GetComponent<MeshRenderer>().material = PURPLE;
             }
         }
 
@@ -315,6 +358,12 @@ public class TANK_SCRIPT : MonoBehaviour
                 ground = true;
                 UP_VEL = 0;
             }
+
+            if (hit.collider.gameObject.CompareTag("POINT"))
+            {
+                SPAWN = new Vector3(hit.collider.gameObject.transform.position.x, this.gameObject.transform.position.y + 1, hit.collider.gameObject.transform.position.z);
+                hit.collider.gameObject.GetComponent<MeshRenderer>().material = PURPLE;
+            }
         }
 
         if (Physics.Raycast(transform.position + transform.TransformDirection(Vector3.back) / 2, transform.TransformDirection(Vector3.down), out hit, OBJECTS))
@@ -324,6 +373,12 @@ public class TANK_SCRIPT : MonoBehaviour
                 Debug.Log(hit.distance);
                 ground = true;
                 UP_VEL = 0;
+            }
+
+            if (hit.collider.gameObject.CompareTag("POINT"))
+            {
+                SPAWN = new Vector3(hit.collider.gameObject.transform.position.x, this.gameObject.transform.position.y + 1, hit.collider.gameObject.transform.position.z);
+                hit.collider.gameObject.GetComponent<MeshRenderer>().material = PURPLE;
             }
         }
     }
