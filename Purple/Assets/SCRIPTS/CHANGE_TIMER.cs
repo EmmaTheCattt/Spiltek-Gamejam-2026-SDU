@@ -30,7 +30,7 @@ public class CHANGE_TIMER : TEXT
                 TEXT_text.text = "TIME: " + min.ToString() + ":" + sec.ToString();
             }
 
-            if (GAMEMANAGER.GM.Current_time <= 0)
+            if (GAMEMANAGER.GM.Current_time <= 0 && GAMEMANAGER.GM.loaded == true)
             {
                 GAMEMANAGER.GM.failed = true;
 

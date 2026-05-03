@@ -22,7 +22,7 @@ public class TEXT : MonoBehaviour
             TEXT_text.color = Color.white;
         }
 
-        if (GAMEMANAGER.GM.Current_time <= 0)
+        if (GAMEMANAGER.GM.Current_time <= 0 && GAMEMANAGER.GM.loaded == true)
         {
             TEXT_text.color = Color.red;
         }

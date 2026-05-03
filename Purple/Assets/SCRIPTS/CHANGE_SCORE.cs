@@ -11,13 +11,20 @@ public class CHANGE_SCORE : TEXT
         TEXT_text.text = "Painted Tiles: " + GAMEMANAGER.GM.score + "/" + GAMEMANAGER.GM.Max_score;
         check_score();
 
-        if (GAMEMANAGER.GM.Max_score <= GAMEMANAGER.GM.score)
+        if (GAMEMANAGER.GM.Max_score <= GAMEMANAGER.GM.score && GAMEMANAGER.GM.Current_time > 0)
         {
             CONGRATS.SetActive(true);
         }
         else
         {
-            CONGRATS.SetActive(false);
+            if (GAMEMANAGER.GM.Current_time <= 0)
+            {
+                CONGRATS.SetActive(true);
+            }
+            else
+            {
+                CONGRATS.SetActive(false);
+            }
         }
     }
 }

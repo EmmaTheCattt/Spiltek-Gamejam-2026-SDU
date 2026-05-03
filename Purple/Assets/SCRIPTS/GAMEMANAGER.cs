@@ -134,6 +134,7 @@ public class GAMEMANAGER : MonoBehaviour
 
             if (failed == true)
             {
+                loaded = false;
                 score = 0;
                 Current_time = 0;
                 OTHER_TIME = 0;
