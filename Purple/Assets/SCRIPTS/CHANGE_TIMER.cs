@@ -12,7 +12,7 @@ public class CHANGE_TIMER : TEXT
     {
         if (GAMEMANAGER.GM.infinite == false)
         {
-            if (GAMEMANAGER.GM.score < GAMEMANAGER.GM.Max_score)
+            if (GAMEMANAGER.GM.score < GAMEMANAGER.GM.Max_score || GAMEMANAGER.GM.Current_time <= 0)
             {
                 GAMEMANAGER.GM.Current_time -= Time.deltaTime;
             }
@@ -29,6 +29,14 @@ public class CHANGE_TIMER : TEXT
             {
                 TEXT_text.text = "TIME: " + min.ToString() + ":" + sec.ToString();
             }
+
+            if (GAMEMANAGER.GM.Current_time <= 0)
+            {
+                GAMEMANAGER.GM.failed = true;
+
+                GAMEMANAGER.GM.Current_time = 0;
+            }
+
             check_score();
         }
 

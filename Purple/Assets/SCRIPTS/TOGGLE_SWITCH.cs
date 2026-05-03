@@ -11,6 +11,7 @@ public class TOGGLE_SWITCH : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        INFINITE = GAMEMANAGER.GM.infinite;
         AHHHH.isOn = INFINITE;
     }
 

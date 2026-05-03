@@ -21,5 +21,10 @@ public class TEXT : MonoBehaviour
         {
             TEXT_text.color = Color.white;
         }
+
+        if (GAMEMANAGER.GM.Current_time <= 0)
+        {
+            TEXT_text.color = Color.red;
+        }
     }
 }

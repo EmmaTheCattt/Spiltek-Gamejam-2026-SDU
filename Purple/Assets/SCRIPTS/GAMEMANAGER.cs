@@ -40,6 +40,7 @@ public class GAMEMANAGER : MonoBehaviour
 
     [Header("LOADED?")]
     public bool loaded = false;
+    public bool failed = false;
 
     public bool infinite = false;
 
@@ -113,7 +114,7 @@ public class GAMEMANAGER : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            if (Max_score <= score)
+            if (Max_score <= score && failed == false)
             {
                 for(int i = 0; i < cleared.Length; i++)
                 {
@@ -124,10 +125,20 @@ public class GAMEMANAGER : MonoBehaviour
                         score = 0;
                         Current_time = 0;
                         OTHER_TIME = 0;
+                        failed = false;
                         SceneManager.LoadScene("TITLE");
                         break;
                     }
                 }
+            }
+
+            if (failed == true)
+            {
+                score = 0;
+                Current_time = 0;
+                OTHER_TIME = 0;
+                failed = false;
+                SceneManager.LoadScene("TITLE");
             }
         }
     }
