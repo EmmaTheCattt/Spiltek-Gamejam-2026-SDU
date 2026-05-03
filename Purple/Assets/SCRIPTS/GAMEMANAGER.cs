@@ -43,6 +43,7 @@ public class GAMEMANAGER : MonoBehaviour
     public bool failed = false;
 
     public bool infinite = false;
+    public int Current_level;
 
     void Awake()
     {
@@ -69,6 +70,7 @@ public class GAMEMANAGER : MonoBehaviour
             Max_score = Max_score_Level_1;
             Current_time = Max_time_Level_1;
             Max_time = Max_time_Level_1;
+            Current_level = 0;
             loaded = true;
         }
 
@@ -77,6 +79,7 @@ public class GAMEMANAGER : MonoBehaviour
             Max_score = Max_score_Level_2;
             Current_time = Max_time_Level_2;
             Max_time = Max_time_Level_2;
+            Current_level = 1;
             loaded = true;
         }
 
@@ -85,6 +88,7 @@ public class GAMEMANAGER : MonoBehaviour
             Max_score = Max_score_Level_3;
             Current_time = Max_time_Level_3;
             Max_time = Max_time_Level_3;
+            Current_level = 2;
             loaded = true;
         }
 
@@ -93,6 +97,7 @@ public class GAMEMANAGER : MonoBehaviour
             Max_score = Max_score_Level_4;
             Current_time = Max_time_Level_4;
             Max_time = Max_time_Level_4;
+            Current_level = 3;
             loaded = true;
         }
 
@@ -101,6 +106,7 @@ public class GAMEMANAGER : MonoBehaviour
             Max_score = Max_score_Level_5;
             Current_time = Max_time_Level_5;
             Max_time = Max_time_Level_5;
+            Current_level = 4;
             loaded = true;
         }
 
@@ -120,15 +126,41 @@ public class GAMEMANAGER : MonoBehaviour
                 {
                     if (cleared[i] == false)
                     {
-                        cleared[i] = true;
-                        loaded = false;
-                        score = 0;
-                        Current_time = 0;
-                        OTHER_TIME = 0;
-                        failed = false;
-                        SceneManager.LoadScene("TITLE");
-                        break;
+                        if (i <= Current_level)
+                        {
+                            cleared[i] = true;
+                            loaded = false;
+                            score = 0;
+                            Current_time = 0;
+                            OTHER_TIME = 0;
+                            failed = false;
+                            SceneManager.LoadScene("TITLE");
+                            break;
+                        }
+                        else
+                        {
+                            loaded = false;
+                            score = 0;
+                            Current_time = 0;
+                            OTHER_TIME = 0;
+                            failed = false;
+                            SceneManager.LoadScene("TITLE");
+                        }
                     }
+                }
+
+                bool YUPPIE = true;
+                for (int i = 0; i < cleared.Length; i++)
+                {
+                    if (cleared[i] == false)
+                    {
+                        YUPPIE = false;
+                    }
+                }
+
+                if (YUPPIE == true)
+                {
+                    SceneManager.LoadScene("TITLE");
                 }
             }
 
