@@ -39,9 +39,9 @@ public class CHANGE_TIMER : TEXT
                 GAMEMANAGER.GM.OTHER_TIME += Time.deltaTime;
             }
 
-            sec = (int)GAMEMANAGER.GM.Current_time % 60;
+            sec = (int)GAMEMANAGER.GM.OTHER_TIME % 60;
 
-            min = (int)GAMEMANAGER.GM.Current_time / 60;
+            min = (int)GAMEMANAGER.GM.OTHER_TIME / 60;
 
             if (sec < 10)
             {
