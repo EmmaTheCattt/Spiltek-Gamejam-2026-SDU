@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,24 +10,51 @@ public class CHANGE_TIMER : TEXT
     // Update is called once per frame
     void Update()
     {
-        if (GAMEMANAGER.GM.score < GAMEMANAGER.GM.Max_score)
+        if (GAMEMANAGER.GM.infinite == false)
         {
-            GAMEMANAGER.GM.Current_time -= Time.deltaTime;
+            if (GAMEMANAGER.GM.score < GAMEMANAGER.GM.Max_score)
+            {
+                GAMEMANAGER.GM.Current_time -= Time.deltaTime;
+            }
+
+            sec = (int)GAMEMANAGER.GM.Current_time % 60;
+
+            min = (int)GAMEMANAGER.GM.Current_time / 60;
+
+            if (sec < 10)
+            {
+                TEXT_text.text = "TIME: " + min.ToString() + ":0" + sec.ToString();
+            }
+            else
+            {
+                TEXT_text.text = "TIME: " + min.ToString() + ":" + sec.ToString();
+            }
+            check_score();
         }
 
-        sec = (int)GAMEMANAGER.GM.Current_time % 60;
-
-        min = (int)GAMEMANAGER.GM.Current_time / 60;
-
-        if (sec < 10)
+        if (GAMEMANAGER.GM.infinite == true)
         {
-            TEXT_text.text = "TIME: " + min.ToString() + ":0" + sec.ToString();
+            if (GAMEMANAGER.GM.score < GAMEMANAGER.GM.Max_score)
+            {
+                GAMEMANAGER.GM.OTHER_TIME += Time.deltaTime;
+            }
+
+            sec = (int)GAMEMANAGER.GM.Current_time % 60;
+
+            min = (int)GAMEMANAGER.GM.Current_time / 60;
+
+            if (sec < 10)
+            {
+                TEXT_text.text = "TIME: " + min.ToString() + ":0" + sec.ToString();
+            }
+            else
+            {
+                TEXT_text.text = "TIME: " + min.ToString() + ":" + sec.ToString();
+            }
+
+            check_score();
         }
-        else
-        {
-            TEXT_text.text = "TIME: " + min.ToString() + ":" + sec.ToString();
-        }
-        check_score();
+
 
 
     }

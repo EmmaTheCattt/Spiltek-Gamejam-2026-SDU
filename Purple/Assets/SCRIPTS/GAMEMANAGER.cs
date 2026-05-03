@@ -14,6 +14,8 @@ public class GAMEMANAGER : MonoBehaviour
     public float Current_time;
     public float Max_time;
 
+    public float OTHER_TIME = 0;
+
     public bool[] cleared;
 
     [Header("LEVEL 1")]
@@ -38,6 +40,8 @@ public class GAMEMANAGER : MonoBehaviour
 
     [Header("LOADED?")]
     public bool loaded = false;
+
+    public bool infinite = false;
 
     void Awake()
     {
@@ -119,6 +123,7 @@ public class GAMEMANAGER : MonoBehaviour
                         loaded = false;
                         score = 0;
                         Current_time = 0;
+                        OTHER_TIME = 0;
                         SceneManager.LoadScene("TITLE");
                         break;
                     }
