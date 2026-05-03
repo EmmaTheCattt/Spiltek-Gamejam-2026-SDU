@@ -1,30 +1,30 @@
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEditor;
 
 public class TOGGLE_SWITCH : MonoBehaviour, IPointerClickHandler
 {
-    public Slider SLIDE;
+    public Slider AHHHH;
     public bool INFINITE = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SLIDE = GetComponent<Slider>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (INFINITE == false)
+        if (INFINITE)
         {
-            SLIDE.value = 0;
+            AHHHH.value = 1;
         }
 
-        if (INFINITE == true)
+        if (!INFINITE)
         {
-            SLIDE.value = 1;
+            AHHHH.value = 0;
         }
 
         GAMEMANAGER.GM.infinite = INFINITE;

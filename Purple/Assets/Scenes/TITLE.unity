@@ -2220,6 +2220,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77ef59f80f8848a4480df3d054963849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TOGGLE_SWITCH
+  AHHHH: {fileID: 1591400489}
+  INFINITE: 0
 --- !u!114 &1591400489
 MonoBehaviour:
   m_ObjectHideFlags: 0
